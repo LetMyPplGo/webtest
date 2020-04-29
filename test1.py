@@ -4,17 +4,31 @@ from testrail import *
 import time
 
 
+def testcase(func):
+    def wrapper(*args, **kwargs):
+        try:
+            staticmethod(func)
+            staticmethod(func)
+            return func(*args, **kwargs)
+        except AssertionError as err:
+            # if function creates an archive to attach to fail collect it here and return as third parameter
+            # the archive can be named by the function name func.__name__
+            return R_FAIL, "{}".format(err)
+    return wrapper
+
+
 class TestFactory:
 
-    @staticmethod
+    # @staticmethod
+    @testcase
     def test_ma_values():
         driver = webdriver.Opera()
         driver.get("http://python.org")
-        if "Python" not in driver.title: return R_FAIL, "python is not in the title"
+        assert "Python" in driver.title, "python is not in the title"
         elem = driver.find_element_by_name("q")
         elem.clear()
         elem.send_keys("pycon" + Keys.RETURN)
-        if "No results found." not in driver.page_source: return R_FAIL, "no results found"
+        assert "No results found." in driver.page_source, "no results found"
         driver.close()
         return R_PASS, ""
 
@@ -29,8 +43,8 @@ def test_run(run_id):
             print("Test name: {}, autotest: {}".format(test['title'], test_name))
             assert hasattr(TestFactory, test_name)
             time1 = time.time()
-            result, comment = TestFactory.test_ma_values()
-            # result, comment = getattr(TestFactory, test_name)
+            # result, comment = TestFactory.test_ma_values()
+            result, comment = getattr(TestFactory, test_name)()
             elapsed = str(round(time.time() - time1)) + "s"
             print("Result: {}, {}, spent {}".format(results[result], comment, elapsed))
             client.send_post('add_result/{}'.format(test_id), {'status_id': result, 'comment': comment, 'elapsed': elapsed})
