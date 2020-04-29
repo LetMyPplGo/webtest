@@ -7,8 +7,6 @@ import time
 def testcase(func):
     def wrapper(*args, **kwargs):
         try:
-            staticmethod(func)
-            staticmethod(func)
             return func(*args, **kwargs)
         except AssertionError as err:
             # if function creates an archive to attach to fail collect it here and return as third parameter
@@ -19,7 +17,6 @@ def testcase(func):
 
 class TestFactory:
 
-    # @staticmethod
     @testcase
     def test_ma_values():
         driver = webdriver.Opera()
