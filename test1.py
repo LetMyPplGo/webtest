@@ -36,7 +36,7 @@ class ProcessFactory:
             cls.active_processes[-1].start()
             print(f"Process {func.__name__} is started")
         else:
-            cls.queue.append(Function(func, *args, **kwargs))
+            cls.queue.append(Function(func, driver))
             print(f"Process {func.__name__} is added to queue")
 
     @classmethod
@@ -67,10 +67,10 @@ def test_case_web(func):
             driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub",
                                       desired_capabilities=capabilities)
 
-            # func(driver, *args, **kwargs)
+            func(driver)
             # ProcessFactory.run(lambda: func(driver, *args, **kwargs))
-            ProcessFactory.run(func, driver)
-            ProcessFactory.finished()
+            # ProcessFactory.run(func, driver)
+            # ProcessFactory.finished()
         except AssertionError as err:
             # TODO: if function creates an archive to attach to fail collect it here and return as third parameter
             #       the archive can be named by the function name func.__name__
@@ -86,6 +86,14 @@ def test_case_web(func):
 
 
 class TestFactory:
+    @classmethod
+    def run(cls, func, capabilities):
+        assert hasattr(cls, func)
+        time1 = time.time()
+        result, comment = getattr(cls, func)(capabilities)
+        elapsed = str(round(time.time() - time1))
+        print("Test {} on {}, {}, spent {}s. {}".format(test_name, capabilities["browserName"], results[result], elapsed, comment))
+        return result, comment, elapsed
 
     @staticmethod
     @test_case_web
@@ -151,26 +159,11 @@ CAP_FIREFOX["version"] = "75.0"
 
 # test_run("1")
 
-time1 = time.time()
-result, comment = TestFactory.test_ma_values(CAP_CHROME)
-elapsed = str(round(time.time() - time1)) + "s"
-print("Result: {}, {}, spent {}".format(results[result], comment, elapsed))
-
-time1 = time.time()
-result, comment = TestFactory.test_ma_values(CAP_OPERA)
-elapsed = str(round(time.time() - time1)) + "s"
-print("Result: {}, {}, spent {}".format(results[result], comment, elapsed))
-
-time1 = time.time()
-result, comment = TestFactory.test_ma_values(CAP_CHROME)
-elapsed = str(round(time.time() - time1)) + "s"
-print("Result: {}, {}, spent {}".format(results[result], comment, elapsed))
-
-time1 = time.time()
-result, comment = TestFactory.test_ma_values(CAP_OPERA)
-elapsed = str(round(time.time() - time1)) + "s"
-print("Result: {}, {}, spent {}".format(results[result], comment, elapsed))
-
+test_name = "test_ma_values"
+result, comment, elapsed = TestFactory.run (test_name, CAP_CHROME)
+result, comment, elapsed = TestFactory.run (test_name, CAP_OPERA)
+result, comment, elapsed = TestFactory.run (test_name, CAP_OPERA)
+result, comment, elapsed = TestFactory.run (test_name, CAP_CHROME)
 
 #
 # time1 = time.time()
