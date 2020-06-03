@@ -12,12 +12,26 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 import time
-import inspect
 from traceback import format_tb
 import multiprocessing
-import sys
 from lib_testlink import *
-import lib_pages
+import json
+import requests
+
+# ------------------------------------------------------------- Constants
+
+BASE_URL = "http://demo1.cyber.rt-solar.ru"
+
+R_PASS = 'p'
+R_BLOCK = 'b'
+R_FAIL = 'f'
+results = {R_PASS: "pass", R_BLOCK: "block", R_FAIL: "fail"}
+
+SELENOID_URL = "http://localhost:4444/wd/hub"
+
+USE_LOCAL_FOX = True
+
+# ------------------------------------------------------------- Classes
 
 
 class Function:
@@ -68,8 +82,11 @@ def test_case_web(func):
 
             # Selenoid should be started in advance with:
             # > cm.exe selenoid start --vnc
-            driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub",
-                                      desired_capabilities=capabilities)
+            if USE_LOCAL_FOX:
+                driver = webdriver.Firefox()
+            else:
+                driver = webdriver.Remote(command_executor=SELENOID_URL,
+                                          desired_capabilities=capabilities)
 
             func(driver)
             # ProcessFactory.run(lambda: func(driver, *args, **kwargs))
@@ -90,9 +107,9 @@ def test_case_web(func):
     return wrapper
 
 
-class TestFactory:
+class TestFramework:
     @classmethod
-    def run(cls, func, capabilities, test_case, test_plan):
+    def run(cls, func, capabilities, test_case, test_plan, build):
         # look for the function in the inherited classes
         child = None
         for item in cls.__subclasses__():
@@ -105,58 +122,13 @@ class TestFactory:
         result, comment = getattr(child, func)(capabilities)
         elapsed = str(round(time.time() - time1))
         print("Test {} on {}, {}, spent {}s. {}".format(test_case, capabilities["browserName"], results[result], elapsed, comment))
-        submit_result(test_case, test_plan, G_BUILD, result, elapsed, comment, None)
+        submit_result(test_case, test_plan, build, result, elapsed, comment, None)
         return result, comment, elapsed
 
 
-class Test_UI(TestFactory):
-    @staticmethod
-    @test_case_web
-    def event_run_button(driver):
-        page = lib_pages.PageLogin(driver)
-        page.open_main()
-        page.enter_name("admin@example.com")
-        page.enter_pass("1qaz@WSX")
-        # page.click_enter()
-
-        page.click_forgot_pass()
-        page.enter_email("pupkin@email.ru")
-        page.click_send_email()
-
-        # wait = WebDriverWait(driver, 10)
-        #
-        # driver.get("http://demo1.cyber.rt-solar.ru")
-        # # assert "КИБЕРПОЛИГОН" in driver.title, "КИБЕРПОЛИГОН is not in the title"
-        #
-        # elem = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@type='text']")))
-        # # elem = driver.find_element_by_xpath("//input[@type='text']")
-        # elem.clear()
-        # elem.send_keys("admin@example.com")
-        #
-        # elem = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@type='password']")))
-        #
-        # # elem = driver.find_element_by_xpath("//input[@type='password']")
-        # elem.clear()
-        # elem.send_keys("1qaz@WSX" + Keys.RETURN)
-
-        # elem = wait.until(EC.presence_of_element_located((By.XPATH, "// span[contains(., 'Административная панель')]")))
-        # # elem = driver.find_element_by_xpath("// span[contains(., 'Административная панель')]")
-        # elem.click()
-        #
-        # they_exist = driver.find_elements(By.XPATH, "//div[@class='v-toolbar__title'][contains(.,'АДМИНИСТРАТИВНАЯ ПАНЕЛЬ')]")
-        # assert len(they_exist) != 0, "Did not Log in ;("
-
-        driver.close()
-
-
-def get_build(capabilities, test_plan):
-    # driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub",
-    #                           desired_capabilities=capabilities)
-    # driver.get("http://demo1.cyber.rt-solar.ru")
-    # wait = WebDriverWait(driver, 10)
-    # elem = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@type='text']")))
-    # now get the build from the webUI, let's say it is '0.1.34'
-    app_build = '0.1.34'
+def get_build(test_plan):
+    r = requests.get(f"{BASE_URL}/api/version")
+    app_build = json.loads(r.content)["version"]
 
     # now check if such build exists
     for build in tls.getBuildsForTestPlan(test_plan):
@@ -175,47 +147,6 @@ def default_capabilities(browser):
             }
 
 
-# ------------------------------------------------------------- Constants
-
-R_PASS = 'p'
-R_BLOCK = 'b'
-R_FAIL = 'f'
-results = {R_PASS: "pass", R_BLOCK: "block", R_FAIL: "fail"}
-
-CAP_CHROME = default_capabilities("chrome")
-CAP_OPERA = default_capabilities("opera")
-CAP_FIREFOX = default_capabilities("firefox")
-CAP_FIREFOX["version"] = "75.0"
-
-# ------------------------------------------------------------- MAIN
-"""
-Plan:
-    . Script is started with Test Plan ID as argument
-    . Get the list of Tests attached to the Test Plan
-    . For each Test:
-        . get list of Browsers or Capabilities to run
-        . get name of the script 
-        . run the script with arguments: Capabilities, Test ID
-        . When the test ends it writes the results into the Test in Testlink
-"""
-
-# print(tls.whatArgs('createBuild'))
-# exit(1)
-
-test_plan = 257
-
-# get the build for this run
-G_BUILD = get_build(CAP_CHROME, test_plan)
-
-for test_id, script in iterate_scripts_for_test_plan(test_plan):
-    TestFactory.run(script, CAP_OPERA, test_id, test_plan)
-    # print(f"Test {test_id}, script {script}")
-
-# event_run_button
-
-# test_name = "test_ma_values"
-# TestFactory.run (test_name, CAP_CHROME, 1, 257)
-# TestFactory.run (test_name, CAP_OPERA, 1, 257)
 
 
 
