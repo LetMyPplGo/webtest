@@ -4,7 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from framework import BASE_URL
 from time import time, sleep
-
+import json
 
 MONTHS = {
     1: "янв.",
@@ -20,6 +20,10 @@ MONTHS = {
     11: "нояб.",
     12: "дек.",
 }
+
+# load UI map - once for all pages
+with open('ui.json') as json_file:
+    UI_MAP = json.load(json_file)
 
 
 class Page:
@@ -40,6 +44,19 @@ class Page:
     #     locator = self.elements[element]
     #     return WebDriverWait(self.driver, wait).until(EC.presence_of_all_elements_located(locator),
     #                                                   message=f"Can't find elements {element} by locator {locator}")
+
+    def build_xpath(self, element):
+        # TODO: start using it in find_element_by_xpath or rewrite if all elements will have IDs
+        page_name = self.__class__.__name__
+        # try:
+        if UI_MAP[page_name][element]["id"] != "":
+            return "//*[@id='{}']".format(UI_MAP[page_name][element]["id"])
+
+        if UI_MAP[page_name][element]["xpath"] != "":
+            return UI_MAP[page_name][element]["xpath"]
+
+        raise ValueError
+        # except
 
     def find_element_by_xpath(self, element, **kwargs):
         """element is  either:
@@ -132,7 +149,7 @@ class PageLogin(Page):
         return self.element_exists("err_user_not_found")
 
 
-class PageHeader(Page):
+class PageMainHeader(Page):
     """This is header of all pages"""
     elements = {
         "btn_events": "//span[@class='v-btn__content'][contains(.,'Мероприятия')]",
@@ -162,7 +179,7 @@ class PageHeader(Page):
         return elem.text()
 
 
-class PageEvent(Page):
+class PageEventInList(Page):
     def __init__(self, driver, name):
         super().__init__(driver)
         self.name = name
@@ -170,7 +187,7 @@ class PageEvent(Page):
         self.elements = {
             "div_event_by_name": self.div_event_by_name,
             "lnk_event_name": self.div_event_by_name + "//a[contains(@href, 'event')]",
-            "lnk_teacher": self.div_event_by_name + "//span[contains(@class,'turquoise--text underline--text pointer')]",
+            "lnk_teacher": self.div_event_by_name + "//span[contains(@class,'ml-3')]",
             "text_users_amount": self.div_event_by_name + "//span[contains(@class, 'mr-10')]",
             "text_duration": self.div_event_by_name + "//span[contains(@class, 'mr-2')]",
             "text_organization": self.div_event_by_name + "//div[contains(@class, 'v-list-item__content text-right')]",
@@ -217,7 +234,7 @@ class PageEvents(Page):
         element = self.find_elements_by_xpath(self.div_event_by_name.format(name))
         if len(element) == 0:
             return None
-        return PageEvent(self.driver, name)
+        return PageEventInList(self.driver, name)
 
 
 class PageMission(Page):

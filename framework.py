@@ -1,9 +1,9 @@
 # TODO:
-#   1. Create full cycle from starting tests in Testrail to adding results back to Testrail
+#   1. Create full cycle from starting tests in Testlink to adding results back to Testlink
 #   2. Run tests in parallel (all kind of tests, not only web UI)
-#   3. Kubernetes
+#   3. Kubernetes (?)
 #   4. What if some tests will need Virtual Machines? Will devops manage VMs? Tests will use their API
-#   5. Think of non-destructive tests, so that they can execute in one Docker container
+#   5. Think of non-destructive tests, so that they can execute one after another in one Docker container
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys

@@ -13,7 +13,7 @@ class Tests(TestFramework):
 
         # p_header = PageHeader(driver)
         # p_missions = p_header.click_missions()
-        p_mission = PageHeader(driver).click_missions().get_mission_by_name("SOC - 1")
+        p_mission = PageMainHeader(driver).click_missions().get_mission_by_name("SOC - 1")
         data = p_mission.get_mission_data()
         print(data)
         p_event_edit = p_mission.click_new_event()

@@ -1,0 +1,1000 @@
+{
+  "PageLogin": {
+    "comment": "Login page and Forget Password popup",
+    "elements": {
+      "header": {
+        "id": ""
+      },
+      "email": {
+        "id": ""
+      },
+      "email_error": {
+        "id": ""
+      },
+      "password": {
+        "id": ""
+      },
+      "btn_enter": {
+        "id": ""
+      },
+      "login_error": {
+        "id": ""
+      },
+      "lnk_forgot_pass": {
+        "id": ""
+      },
+      "forgot_pass_email": {
+        "id": ""
+      },
+      "forgot_pass_email_error": {
+        "id": ""
+      },
+      "btn_forgot_pass_cancel": {
+        "id": ""
+      },
+      "btn_forgot_pass_enter": {
+        "id": ""
+      }
+    }
+  },
+  "PageNewPassword": {
+    "comment": "New Password page",
+    "elements": {
+      "header": {
+        "id": ""
+      },
+      "email": {
+        "id": ""
+      },
+      "password": {
+        "id": ""
+      },
+      "repeat_password": {
+        "id": ""
+      },
+      "hint_container": {
+        "id": ""
+      },
+      "hint_item": {
+        "id": ""
+      },
+      "btn_save": {
+        "id": ""
+      },
+      "ok_popup": {
+        "id": ""
+      },
+      "ok_popup_header": {
+        "id": ""
+      },
+      "ok_popup_message": {
+        "id": ""
+      },
+      "btn_ok_popup_ok": {
+        "id": ""
+      },
+      "error_message": {
+        "comment": "passwords do not match / minimum requirements are not met",
+        "id": ""
+      }
+    }
+  },
+  "PageNewPasswordError": {
+    "comment": "when user tries to use the link twice",
+    "elements": {
+      "header": {
+        "id": ""
+      },
+      "message": {
+        "id": ""
+      },
+      "btn_back": {
+        "id": ""
+      }
+    }
+  },
+  "PageAccessError": {
+    "comment": "No permissions to view this page",
+    "elements": {
+      "header": {
+        "id": ""
+      },
+      "message": {
+        "id": ""
+      },
+      "btn_back": {
+        "id": ""
+      }
+    }
+  },
+  "PageMainHeader": {
+    "comment": "Header that is visible on all pages (except infrastructure)",
+    "elements": {
+      "btn_events": {
+        "id": ""
+      },
+      "btn_missions": {
+        "id": ""
+      },
+      "btn_administration": {
+        "id": ""
+      },
+      "btn_exit": {
+        "id": ""
+      },
+      "text_welcome": {
+        "id": ""
+      }
+    }
+  },
+  "PageEventInList": {
+    "comment": "One event in the Events list",
+    "elements": {
+      "event_container": {
+        "id": ""
+      },
+      "event_name": {
+        "id": ""
+      },
+      "users_amount": {
+        "id": ""
+      },
+      "users_limit": {
+        "id": ""
+      },
+      "time_limit": {
+        "id": ""
+      },
+      "organization": {
+        "id": ""
+      },
+      "mode": {
+        "id": ""
+      },
+      "mission_name": {
+        "id": ""
+      },
+      "mission_description": {
+        "id": ""
+      },
+      "stars_container": {
+        "id": ""
+      },
+      "btn_report": {
+        "id": ""
+      },
+      "time_to_start": {
+        "id": ""
+      },
+      "tutor": {
+        "id": ""
+      },
+      "state": {
+        "id": ""
+      }
+    }
+  },
+  "PageViewEvent": {
+    "comment": "Event card in the view mode",
+    "elements": {
+      "btn_back": {
+        "id": ""
+      },
+      "event_name": {
+        "id": ""
+      },
+      "organization": {
+        "id": ""
+      },
+      "mode": {
+        "id": ""
+      },
+      "mission_name": {
+        "id": ""
+      },
+      "industry": {
+        "id": ""
+      },
+      "infra_template": {
+        "id": ""
+      },
+      "users_limit": {
+        "id": ""
+      },
+      "time_limit": {
+        "id": ""
+      },
+      "stars_container": {
+        "id": ""
+      },
+      "time_to_start": {
+        "id": ""
+      },
+      "btn_run": {
+        "id": ""
+      },
+      "btn_console": {
+        "id": ""
+      },
+      "btn_report": {
+        "id": ""
+      },
+      "btn_about_mission": {
+        "id": ""
+      },
+      "btn_edit_event": {
+        "id": ""
+      },
+      "state": {
+        "id": ""
+      },
+      "cb_autostart": {
+        "id": ""
+      },
+      "start_time": {
+        "id": ""
+      },
+      "tutor_container": {
+        "id": ""
+      },
+      "tutor_name": {
+        "id": ""
+      },
+      "tutor_email": {
+        "id": ""
+      },
+      "tutor_occupation": {
+        "id": ""
+      },
+      "student_container": {
+        "id": ""
+      },
+      "student_name": {
+        "id": ""
+      },
+      "student_email": {
+        "id": ""
+      },
+      "student_occupation": {
+        "id": ""
+      },
+      "observer_container": {
+        "id": ""
+      },
+      "observer_name": {
+        "id": ""
+      },
+      "observer_email": {
+        "id": ""
+      },
+      "observer_occupation": {
+        "id": ""
+      },
+      "created_by": {
+        "id": ""
+      },
+      "created_date": {
+        "id": ""
+      }
+    }
+  },
+  "PageEditEvent": {
+    "comment": "Event card in the create/edit mode",
+    "elements": {
+      "btn_back": {
+        "id": ""
+      },
+      "organization": {
+        "id": ""
+      },
+      "mode": {
+        "id": ""
+      },
+      "mission_name": {
+        "id": ""
+      },
+      "industry": {
+        "id": ""
+      },
+      "infra_template": {
+        "id": ""
+      },
+      "users_limit": {
+        "id": ""
+      },
+      "time_limit": {
+        "id": ""
+      },
+      "stars_container": {
+        "id": ""
+      },
+      "event_name": {
+        "id": ""
+      },
+      "event_name_error": {
+        "id": ""
+      },
+      "btn_organization": {
+        "comment": "button to open organization drop-down list",
+        "id": ""
+      },
+      "organization_item": {
+        "comment": "one item in the organizations list",
+        "id": ""
+      },
+      "organization_error": {
+        "id": ""
+      },
+      "organization_change_popup": {
+        "comment": "popup when organization changes",
+        "id": ""
+      },
+      "organization_change_popup_text": {
+        "comment": "message on the popup when organization changes",
+        "id": ""
+      },
+      "btn_organization_change_popup_yes": {
+        "comment": "button: yes change the organization loosing all data",
+        "id": ""
+      },
+      "btn_organization_change_popup_no": {
+        "comment": "button: no, cancel organization change",
+        "id": ""
+      },
+      "start_date": {
+        "id": ""
+      },
+      "start_date_header": {
+        "comment": "date picker header, switch to Month/Year view",
+        "id": ""
+      },
+      "start_date_container": {
+        "comment": "container of the list/table for Year/Month/Day",
+        "id": ""
+      },
+      "start_date_error": {
+        "id": ""
+      },
+      "start_time": {
+        "id": ""
+      },
+      "start_time_error": {
+        "comment": "not always an error, can be a hint also",
+        "id": ""
+      },
+      "btn_tutor": {
+        "comment": "button to open tutor drop-down list",
+        "id": ""
+      },
+      "tutor_item": {
+        "comment": "one item in the tutor list",
+        "id": ""
+      },
+      "btn_remove_tutor": {
+        "comment": "clean the tutor input",
+        "id": ""
+      },
+      "no_tutors_found": {
+        "comment": "text when no tutors for chosen organization",
+        "id": ""
+      },
+      "students_amount": {
+        "id": ""
+      },
+      "students_limit": {
+        "id": ""
+      },
+      "btn_add_students": {
+        "id": ""
+      },
+      "students_container": {
+        "id": ""
+      },
+      "btn_student_delete": {
+        "id": ""
+      },
+      "student_name": {
+        "id": ""
+      },
+      "student_occupation": {
+        "id": ""
+      },
+      "observers_amount": {
+        "id": ""
+      },
+      "btn_add_observers": {
+        "id": ""
+      },
+      "observers_container": {
+        "id": ""
+      },
+      "btn_observer_delete": {
+        "id": ""
+      },
+      "observer_name": {
+        "id": ""
+      },
+      "observer_occupation": {
+        "id": ""
+      },
+      "btn_save": {
+        "comment": "save event changes / create new event",
+        "id": ""
+      },
+      "ok_popup": {
+        "id": ""
+      },
+      "ok_popup_header": {
+        "id": ""
+      },
+      "ok_popup_message": {
+        "id": ""
+      },
+      "btn_ok_popup": {
+        "id": ""
+      }
+    }
+  },
+  "PageEditEventAddPpl": {
+    "comment": "Popup for adding students & observers",
+    "elements": {
+      "header": {
+        "id": ""
+      },
+      "search": {
+        "id": ""
+      },
+      "btn_clean_search": {
+        "id": ""
+      },
+      "ppl_amount": {
+        "id": ""
+      },
+      "ppl_limit": {
+        "id": ""
+      },
+      "not_found": {
+        "comment": "no students in organization OR no observers at all OR no ppl found for this search",
+        "id": ""
+      },
+      "person_container": {
+        "id": ""
+      },
+      "person_name": {
+        "id": ""
+      },
+      "person_occupation": {
+        "id": ""
+      },
+      "cb_person_choose": {
+        "id": ""
+      },
+      "btn_cancel": {
+        "id": ""
+      },
+      "btn_save": {
+        "id": ""
+      }
+    }
+  },
+  "PageMissionInList": {
+    "comment": "One mission in the Missions list",
+    "elements": {
+      "mission_container": {
+        "id": ""
+      },
+      "mission_name": {
+        "id": ""
+      },
+      "industry": {
+        "id": ""
+      },
+      "mode": {
+        "id": ""
+      },
+      "stars_container": {
+        "id": ""
+      },
+      "mission_description": {
+        "id": ""
+      },
+      "btn_new_event": {
+        "id": ""
+      },
+      "infra_template": {
+        "id": ""
+      },
+      "users_limit": {
+        "id": ""
+      },
+      "time_limit": {
+        "id": ""
+      }
+    }
+  },
+  "PageAdminHeader": {
+    "comment": "Header of the admin panel",
+    "elements": {
+      "btn_users": {
+        "id": ""
+      },
+      "btn_organizations": {
+        "id": ""
+      },
+      "btn_infrastructure": {
+        "id": ""
+      },
+      "infrastructure_has_error": {
+        "comment": "sign near the infra button, appears when there are infra errors",
+        "id": ""
+      }
+    }
+  },
+  "PageAdminUsers": {
+    "comment": "Admin -> Users list",
+    "elements": {
+      "btn_new_user": {
+        "id": ""
+      },
+      "header_name": {
+        "id": ""
+      },
+      "header_role": {
+        "id": ""
+      },
+      "header_curates": {
+        "id": ""
+      },
+      "header_edit": {
+        "id": ""
+      },
+      "header_active": {
+        "id": ""
+      },
+      "header_organization": {
+        "id": ""
+      },
+      "header_occupation": {
+        "id": ""
+      },
+      "header_created_date": {
+        "id": ""
+      },
+      "user_container": {
+        "id": ""
+      },
+      "user_name": {
+        "id": ""
+      },
+      "user_role": {
+        "id": ""
+      },
+      "user_curates": {
+        "id": ""
+      },
+      "user_edit": {
+        "id": ""
+      },
+      "user_active": {
+        "id": ""
+      },
+      "user_organization": {
+        "id": ""
+      },
+      "user_occupation": {
+        "id": ""
+      },
+      "user_created_date": {
+        "id": ""
+      }
+    }
+  },
+  "PageAdminOrganizations": {
+    "comment": "Admin -> Organizations list",
+    "elements": {
+      "btn_new_organization": {
+        "id": ""
+      },
+      "header_name": {
+        "id": ""
+      },
+      "header_edit": {
+        "id": ""
+      },
+      "header_active": {
+        "id": ""
+      },
+      "header_created_date": {
+        "id": ""
+      },
+      "organization_container": {
+        "id": ""
+      },
+      "organization_name": {
+        "id": ""
+      },
+      "organization_edit": {
+        "id": ""
+      },
+      "organization_active": {
+        "id": ""
+      },
+      "organization_created_date": {
+        "id": ""
+      }
+    }
+  },
+  "PageAdminInfra": {
+    "comment": "Admin -> Infrastructure list",
+    "elements": {
+      "header_name": {
+        "id": ""
+      },
+      "header_state": {
+        "id": ""
+      },
+      "header_start_date": {
+        "id": ""
+      },
+      "header_tutor": {
+        "id": ""
+      },
+      "header_template": {
+        "id": ""
+      },
+      "infra_container": {
+        "id": ""
+      },
+      "infra_name": {
+        "id": ""
+      },
+      "infra_state": {
+        "id": ""
+      },
+      "infra_start_date": {
+        "id": ""
+      },
+      "infra_tutor": {
+        "id": ""
+      },
+      "infra_template": {
+        "id": ""
+      }
+    }
+  },
+  "PageEditOrganization": {
+    "comment": "Add / edit Organization",
+    "elements": {
+      "header": {
+        "id": ""
+      },
+      "name": {
+        "id": ""
+      },
+      "name_error": {
+        "id": ""
+      },
+      "btn_cancel": {
+        "id": ""
+      },
+      "btn_ok": {
+        "id": ""
+      },
+      "cancel_popup": {
+        "id": ""
+      },
+      "btn_cancel_popup_yes": {
+        "id": ""
+      },
+      "btn_cancel_popup_no": {
+        "id": ""
+      }
+    }
+  },
+  "PageViewUserProfile": {
+    "comment": "User Profile",
+    "elements": {
+      "header": {
+        "id": ""
+      },
+      "picture": {
+        "comment": "contains both: user picture / no picture",
+        "id": ""
+      },
+      "btn_load_picture": {
+        "id": ""
+      },
+      "load_picture_error": {
+        "id": ""
+      },
+      "btn_drop_picture": {
+        "id": ""
+      },
+      "btn_drop_password": {
+        "id": ""
+      },
+      "drop_pass_popup": {
+        "id": ""
+      },
+      "drop_pass_popup_header": {
+        "id": ""
+      },
+      "drop_pass_popup_message": {
+        "id": ""
+      },
+      "btn_drop_pass_popup_ok": {
+        "id": ""
+      },
+      "btn_edit_user": {
+        "id": ""
+      },
+      "name": {
+        "id": ""
+      },
+      "occupation": {
+        "id": ""
+      },
+      "organization": {
+        "id": ""
+      },
+      "email": {
+        "id": ""
+      },
+      "details": {
+        "id": ""
+      },
+      "details_symbols_count": {
+        "id": ""
+      },
+      "btn_events": {
+        "id": ""
+      },
+      "btn_curation": {
+        "id": ""
+      },
+      "no_events": {
+        "comment": "text that no events found",
+        "id": ""
+      },
+      "events_header_name": {
+        "id": ""
+      },
+      "events_header_mission": {
+        "id": ""
+      },
+      "events_header_start_date": {
+        "id": ""
+      },
+      "events_header_end_date": {
+        "id": ""
+      },
+      "event_container": {
+        "id": ""
+      },
+      "events_event_name": {
+        "id": ""
+      },
+      "events_event_mission": {
+        "id": ""
+      },
+      "events_event_start_date": {
+        "id": ""
+      },
+      "events_event_end_date": {
+        "id": ""
+      },
+      "curation_header_remove": {
+        "id": ""
+      },
+      "curation_header_name": {
+        "id": ""
+      },
+      "curation_header_active": {
+        "id": ""
+      },
+      "curation_header_created_date": {
+        "id": ""
+      },
+      "curation_container": {
+        "id": ""
+      },
+      "curation_org_remove": {
+        "id": ""
+      },
+      "curation_org_name": {
+        "id": ""
+      },
+      "curation_org_active": {
+        "id": ""
+      },
+      "curation_org_created_date": {
+        "id": ""
+      },
+      "curation_input_organization": {
+        "comment": "input with organizations drop-down list",
+        "id": ""
+      },
+      "curation_organization_container": {
+        "comment": "one line in the organizations drop-down list",
+        "id": ""
+      },
+      "curation_organization_item": {
+        "comment": "one line in the organizations drop-down list",
+        "id": ""
+      }
+    }
+  },
+  "PageEditUserProfile": {
+    "comment": "Edit User Profile",
+    "elements": {
+      "header": {
+        "id": ""
+      },
+      "picture": {
+        "comment": "contains both: user picture / no picture",
+        "id": ""
+      },
+      "btn_load_picture": {
+        "id": ""
+      },
+      "load_picture_error": {
+        "id": ""
+      },
+      "btn_drop_picture": {
+        "id": ""
+      },
+      "btn_drop_password": {
+        "id": ""
+      },
+      "drop_pass_popup": {
+        "id": ""
+      },
+      "drop_pass_popup_header": {
+        "id": ""
+      },
+      "drop_pass_popup_message": {
+        "id": ""
+      },
+      "btn_drop_pass_popup_ok": {
+        "id": ""
+      },
+      "surname": {
+        "id": ""
+      },
+      "surname_error": {
+        "id": ""
+      },
+      "first_name": {
+        "id": ""
+      },
+      "first_name_error": {
+        "id": ""
+      },
+      "middle_name": {
+        "id": ""
+      },
+      "middle_name_error": {
+        "id": ""
+      },
+      "email": {
+        "id": ""
+      },
+      "email_error": {
+        "id": ""
+      },
+      "organization_input": {
+        "id": ""
+      },
+      "organization_error": {
+        "id": ""
+      },
+      "organization_container": {
+        "id": ""
+      },
+      "organization_item": {
+        "id": ""
+      },
+      "role": {
+        "id": ""
+      },
+      "role_error": {
+        "id": ""
+      },
+      "role_container": {
+        "id": ""
+      },
+      "role_item": {
+        "id": ""
+      },
+      "time_zone_input": {
+        "id": ""
+      },
+      "time_zone_container": {
+        "id": ""
+      },
+      "time_zone_item": {
+        "id": ""
+      },
+      "occupation": {
+        "id": ""
+      },
+      "occupation_error": {
+        "id": ""
+      },
+      "details": {
+        "id": ""
+      },
+      "details_symbols_count": {
+        "id": ""
+      },
+      "btn_curates": {
+        "id": ""
+      },
+      "btn_cancel": {
+        "id": ""
+      },
+      "btn_save": {
+        "id": ""
+      },
+      "cancel_popup": {
+        "id": ""
+      },
+      "cancel_popup_header": {
+        "id": ""
+      },
+      "cancel_popup_message": {
+        "id": ""
+      },
+      "btn_cancel_popup_yes": {
+        "id": ""
+      },
+      "btn_cancel_popup_no": {
+        "id": ""
+      },
+      "save_popup": {
+        "id": ""
+      },
+      "save_popup_header": {
+        "id": ""
+      },
+      "save_popup_message": {
+        "id": ""
+      },
+      "btn_save_popup_ok": {
+        "id": ""
+      }
+    }
+  },
+  "PageInfrastructure": {
+    "comment": "Infrastructure console in separate window",
+    "elements": {
+      "header": {
+        "id": ""
+      },
+      "event_name": {
+        "id": ""
+      },
+      "organization": {
+        "id": ""
+      },
+      "state": {
+        "id": ""
+      },
+      "infra_template": {
+        "id": ""
+      },
+      "start_time": {
+        "id": ""
+      },
+      "start_date": {
+        "id": ""
+      },
+      "tutor": {
+        "id": ""
+      },
+      "console": {
+        "id": ""
+      }
+    }
+  }
+}
