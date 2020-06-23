@@ -5,7 +5,6 @@ DEVKEY = "3b4b411e146366a7d233408c6dfd8fe6"
 PROJECT_NAME = "CyberPolygon"
 DO_NOT_SUBMIT_RESULTS = True
 
-
 tls = testlink.TestlinkAPIClient(SERVER_URL, DEVKEY)
 
 # print(tls.about())
@@ -17,13 +16,24 @@ tls = testlink.TestlinkAPIClient(SERVER_URL, DEVKEY)
 
 
 def submit_result(test_case, test_plan, build, result, elapsed, comment, attach=None):
+    """
+    Send test results to Testlink. Global variable DO_NOT_SUBMIT_RESULTS switches off writing to Testlink
+    :param test_case: id of the test case in the Testlink
+    :param test_plan: id of the test plan in the Testlink
+    :param build: id of the build in the Testlink
+    :param result: single character 'p', 'b', 'f' for pass, blocked, fail
+    :param elapsed: how long the test was running, seconds
+    :param comment: comment to the test run
+    :param attach: file to attach (not implemented)
+    :return: 0 if all ok
+    """
     if DO_NOT_SUBMIT_RESULTS:
         print ("DO_NOT_SUBMIT_RESULTS is True, do not send results to Testlink")
-        return
+        return 0
 
     result_id = tls.reportTCResult(None, test_plan, None, result, comment, buildid=build, testcaseexternalid=test_case, execduration=float(elapsed))
     if attach is not None:
-        # attach a file to the result
+        # TODO: attach a file to the result
         print(f"Add attach to result {result_id}")
     return 0
 

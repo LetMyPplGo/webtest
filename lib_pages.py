@@ -1,3 +1,7 @@
+"""This library contains Page-Classes
+with all elements on pages
+and related actions
+"""
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
@@ -6,6 +10,7 @@ from framework import BASE_URL
 from time import time, sleep
 import json
 
+# month names in the UI
 MONTHS = {
     1: "янв.",
     2: "февр.",
@@ -21,11 +26,12 @@ MONTHS = {
     12: "дек.",
 }
 
-# load UI map - once for all pages
+# load UI map from file - once for all pages
 with open('ui.json') as json_file:
     UI_MAP = json.load(json_file)
 
 
+# Parent for all pages
 class Page:
     elements = {}
 
@@ -129,6 +135,7 @@ class PageLogin(Page):
 
     def click_enter(self):
         self.find_element_by_xpath("btn_enter").click()
+        return PageEvents(self.driver)
 
     def click_forgot_pass(self):
         self.find_element_by_xpath("lnk_forgotPass").click()

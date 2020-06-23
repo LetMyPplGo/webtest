@@ -22,10 +22,17 @@ import requests
 
 BASE_URL = "http://demo1.cyber.rt-solar.ru"
 
+# result codes
 R_PASS = 'p'
 R_BLOCK = 'b'
 R_FAIL = 'f'
 results = {R_PASS: "pass", R_BLOCK: "block", R_FAIL: "fail"}
+
+# browsers
+CHROME = "chrome"
+FIREFOX = "firefox"
+OPERA = "opera"
+EDGE = "edge"
 
 SELENOID_URL = "http://localhost:4444/wd/hub"
 
@@ -140,11 +147,15 @@ def get_build(test_plan):
 
 
 def default_capabilities(browser):
-    return {"browserName": browser,
-            "enableVNC": True,
-            "enableVideo": False,
-            "enableLog": False
-            }
+    ret = {"browserName": browser,
+           "enableVNC": True,
+           "enableVideo": False,
+           "enableLog": False
+           }
+    if browser == FIREFOX:
+        ret['version'] = "75.0"
+
+    return ret
 
 
 
