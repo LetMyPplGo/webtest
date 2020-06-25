@@ -299,9 +299,9 @@ class PageMissions(Page):
 
 class PageAdminHeader(Page):
     elements = {
-        "lnk_users": "//div[contains(.,'Учетные записи')]",
-        "lnk_organizations": "//div[contains(.,'Организации')]",
-        "lnk_infrastructure": "//div[contains(.,'Инфраструктура')]",
+        "lnk_users": "//div[contains(.,'Учетные записи')][@class='v-tab']",
+        "lnk_organizations": "//div[contains(.,'Организации')][@class='v-tab']",
+        "lnk_infrastructure": "//div[contains(.,'Инфраструктура')][@class='v-tab']",
     }
 
     def click_users(self):
@@ -310,6 +310,7 @@ class PageAdminHeader(Page):
 
     def click_organizations(self):
         self.find_element_by_xpath("lnk_organizations").click()
+        return PageAdminOrganizations(self.driver)
 
     def click_infrastructure(self):
         self.find_element_by_xpath("lnk_infrastructure").click()
@@ -318,25 +319,103 @@ class PageAdminHeader(Page):
 class PageAdminUsers(Page):
     # //div[contains(@class, 'v-menu__content')]//div[contains(@class, 'v-list-item__content')][contains(., '134')]
     elements = {
-
+        'btn_create': "//span[contains(.,'Создать пользователя')]"
     }
+
+    def click_create(self):
+        self.find_element_by_xpath("btn_create").click()
+        return PageCreateUser(self.driver)
+
+
+class PageCreateUser(Page):
+    elements = {
+        'edit_last_name': "//label[.='Фамилия*']/following-sibling::input",
+        'edit_middle_name': "//label[.='Отчество*']/following-sibling::input",
+        'edit_first_name': "//label[.='Имя*']/following-sibling::input",
+        'edit_email': "//label[.='Логин/Email*']/following-sibling::input",
+        "role_open_list": "//label[.='Роль*']/following-sibling::div//i[contains(@class, 'mdi-menu-down')]",
+        "role_list_items": "//div[contains(@class, 'v-menu__content')][contains(@class, 'menuable__content__active')]",
+        "role_list_item": "//div[@class='v-list-item__title'][contains(.,'{}')]",
+        "organization_open_list": "//label[.='Организация*']/following-sibling::div//i[contains(@class, 'mdi-menu-down')]",
+        "organization_list_items": "//div[contains(@class, 'v-menu__content')][contains(@class, 'menuable__content__active')]",
+        "organization_list_item": "//div[@class='v-list-item__title'][contains(.,'{}')]",
+        'edit_job': "//label[.='Должность']/following-sibling::input",
+        'edit_status': "//label[.='Статус']/following-sibling::textarea",
+        'btn_clear_status': "//div[contains(@class, 'status-container')]/button",
+        'label_symbols_count': "//div[contains(., 'символов')][contains(@class, 'v-text-field__details')]",
+        "btn_cancel": "//span[contains(.,'Отменить')]",
+        "btn_create": "//button[contains(.,'Отменить')]/following-sibling::button",
+        # TODO: add error text fields
+        # TODO: add timezone selector
+        # TODO: add photo and password buttons
+    }
+
+    def enter_first_name(self, text):
+        self.enter_text('edit_first_name', text)
+
+    def enter_last_name(self, text):
+        self.enter_text('edit_last_name', text)
+
+    def enter_middle_name(self, text):
+        self.enter_text('edit_middle_name', text)
+
+    def enter_email(self, text):
+        self.enter_text('edit_email', text)
+
+    def enter_job(self, text):
+        self.enter_text('edit_job', text)
+
+    def enter_status(self, text):
+        self.enter_text('edit_status', text)
+
+    def clear_status(self, text):
+        self.find_element_by_xpath("btn_clear_status").click()
+
+    def click_cancel(self, text):
+        self.find_element_by_xpath("btn_cancel").click()
+
+    def click_create(self, text):
+        self.find_element_by_xpath("btn_create").click()
+
+    def set_organization(self, name):
+        self.find_element_by_xpath("organization_open_list").click()
+        self.find_element_by_xpath("organization_list_item", format=(name, )).click()
+
+    def set_role(self, name):
+        self.find_element_by_xpath("organization_open_list").click()
+        self.find_element_by_xpath("organization_list_item", format=(name, )).click()
 
 
 class PageAdminOrganizations(Page):
-    elements = {}
+    elements = {
+        "btn_create": "//span[contains(.,'Создать организацию')]"
+    }
 
     def click_create(self):
-        pass
+        self.find_element_by_xpath("btn_create").click()
+        return PageCreateOrganization(self.driver)
 
 
 class PageCreateOrganization(Page):
-    elements = {}
+    elements = {
+        "edit_name": "//label[contains(., 'Организация')]/following-sibling::input",
+        "btn_cancel": "//span[contains(.,'Отменить')]",
+        "btn_create": "//button[contains(.,'Отменить')]/following-sibling::button"
+    }
 
     def enter_name(self, name):
         self.enter_text("edit_name", name)
 
     def click_cancel(self):
         self.find_element_by_xpath("btn_cancel").click()
+
+    def click_create(self):
+        self.find_element_by_xpath("btn_create").click()
+
+    def wait_create_clickable(self):
+        # TODO: implement
+        pass
+
 
 class PageEventEdit(Page):
     elements = {

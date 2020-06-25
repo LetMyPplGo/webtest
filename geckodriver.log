@@ -513,3 +513,40 @@ JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.94fb4ec6.js, l
 1591209961102	Marionette	WARN	TLS certificate errors will be ignored for this session
 JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.94fb4ec6.js, line 7: Error: Request failed with status code 401
 1591209987186	Marionette	INFO	Stopped listening on port 39123
+1593109487762	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileYqQbrl"
+1593109493012	Marionette	INFO	Listening on port 38451
+1593109493082	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593109509770	Marionette	INFO	Stopped listening on port 38451
+1593109581142	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileCTWhu2"
+1593109585722	Marionette	INFO	Listening on port 37731
+1593109585759	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593109618826	Marionette	INFO	Stopped listening on port 37731
+1593109848788	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXocGHT"
+1593109853291	Marionette	INFO	Listening on port 37313
+1593109853317	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593109875368	Marionette	INFO	Stopped listening on port 37313
+1593110213531	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilebTKibY"
+1593110217960	Marionette	INFO	Listening on port 42099
+1593110218061	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593110244736	Marionette	INFO	Stopped listening on port 42099
+1593110560971	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBE5OKH"
+1593110565536	Marionette	INFO	Listening on port 38723
+1593110565587	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593110584787	Marionette	INFO	Stopped listening on port 38723
+1593110605358	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAslro2"
+1593110609751	Marionette	INFO	Listening on port 35711
+1593110609780	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593110649092	Marionette	INFO	Stopped listening on port 35711
+1593110956506	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilet4lBLP"
+1593110960920	Marionette	INFO	Listening on port 46855
+1593110961031	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593110983308	Marionette	INFO	Stopped listening on port 46855

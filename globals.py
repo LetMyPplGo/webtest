@@ -1,8 +1,8 @@
 """The file contains global constants"""
 
 # User roles
-ROLE_ADMIN = "admin"
-ROLE_TUTOR = "tutor"
-ROLE_STUDENT = "student"
-ROLE_OBSERVER = "observer"
+ROLE_ADMIN = "Администратор"
+ROLE_TUTOR = "Преподаватель"
+ROLE_STUDENT = "Участник"
+ROLE_OBSERVER = "Наблюдатель"
 

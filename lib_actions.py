@@ -9,7 +9,8 @@ import string
 
 
 class User:
-    def __init__(self):
+    def __init__(self, driver):
+        self.driver = driver
         self.first_name = ""
         self.middle_name = ""
         self.last_name = ""
@@ -40,9 +41,16 @@ class User:
         # self.curation = []
         # self.photo = ""
 
-
     def create(self):
-        pass
+        page = lib_pages.PageMainHeader(self.driver).click_administration().click_users().click_create()
+        page.enter_first_name(self.first_name)
+        page.enter_middle_name(self.middle_name)
+        page.enter_last_name(self.last_name)
+        page.enter_email(self.email)
+        page.enter_email(self.email)
+        page.set_organization(self.organization)
+        page.set_role(self.role)
+        page.click_create()
 
     def modify(self):
         pass
@@ -52,12 +60,18 @@ class User:
 
 
 class Organization:
-    def __init__(self):
+    def __init__(self, driver):
+        self.driver = driver
         self.name = ""
         self.is_active = True
 
+    def fill_random(self, string_length=10):
+        self.name = ''.join((random.choice(string.ascii_letters) for i in range(10)))
+
     def create(self):
-        pass
+        page = lib_pages.PageMainHeader(self.driver).click_administration().click_organizations().click_create()
+        page.enter_name(self.name)
+        page.click_create()
 
     def modify(self):
         pass
@@ -67,7 +81,8 @@ class Organization:
 
 
 class Event:
-    def __init__(self):
+    def __init__(self, driver):
+        self.driver = driver
         self.name = ""
         self.organization = ""
         self.begin_date = ""
@@ -94,14 +109,17 @@ class Actions:
         page = lib_pages.PageLogin(self.driver)
         page.open_main()
         page.enter_name(name)
-        page.enter_pass(password + Keys.RETURN)
-        page.click_enter()
+        page.enter_pass(password)
         # page.enter_pass(password + Keys.RETURN)
+        page.click_enter()
 
     def login_admin(self):
         self.login("admin@example.com", "1qaz@WSX")
 
     def create_organization(self):
+        # TODO: logoff first
         self.login_admin()
-        page =lib_pages.PageMainHeader.click_administration().click_organizations().click_create()
+        page = lib_pages.PageMainHeader.click_administration().click_organizations().click_create()
+        page.enter_name(''.join((random.choice(string.ascii_letters) for i in range(10))))
+        page.click_create()
 

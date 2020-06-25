@@ -12,14 +12,20 @@ class Tests(TestFramework):
         act = Actions(driver)
         act.login_admin()
         
-        tutor = User()
+        tutor = User(driver)
         tutor.fill_random()
         tutor.role = globals.ROLE_TUTOR
-        if context.organization:
+
+        if "organization" in context:
             tutor.organization = context.organization
         else:
-            tutor.organization = act.create_organization()
+            org = Organization(driver)
+            org.fill_random()
+            org.create()
+            tutor.organization = org.name
+            context['organization'] = org.name
         # tutor.photo = ""
+        tutor.create()
 
 
     @staticmethod

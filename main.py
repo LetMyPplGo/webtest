@@ -22,14 +22,14 @@ Plan:
         . When the test ends it writes the results into the Test in Testlink
 """
 
-delete_email('bcXgJ0Te')
-
-for email in iterate_emails():
-    if email.email['id'] == 'bcXgJ0Te':
-        print(email.mail_id, email.links)
-
-# print(tls.whatArgs('createBuild'))
-exit(1)
+# delete_email('bcXgJ0Te')
+#
+# for email in iterate_emails():
+#     if email.email['id'] == 'bcXgJ0Te':
+#         print(email.mail_id, email.links)
+#
+# # print(tls.whatArgs('createBuild'))
+# exit(1)
 
 test_plan = 740 #257
 
