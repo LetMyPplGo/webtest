@@ -1,13 +1,30 @@
 from framework import TestFramework, test_case_web
-from lib_actions import Actions
+from lib_actions import *
 from lib_pages import *
 from time import sleep
+import globals
 
 
 class Tests(TestFramework):
     @staticmethod
     @test_case_web
-    def event_run_button(driver):
+    def create_tutor_by_admin(driver, context):
+        act = Actions(driver)
+        act.login_admin()
+        
+        tutor = User()
+        tutor.fill_random()
+        tutor.role = globals.ROLE_TUTOR
+        if context.organization:
+            tutor.organization = context.organization
+        else:
+            tutor.organization = act.create_organization()
+        # tutor.photo = ""
+
+
+    @staticmethod
+    @test_case_web
+    def event_run_button(driver, context):
         act = Actions(driver)
         act.login_admin()
 

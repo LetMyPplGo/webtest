@@ -75,7 +75,7 @@ class ProcessFactory:
 
 
 def test_case_web(func):
-    def wrapper(capabilities):
+    def wrapper(capabilities, context):
         try:
             capabilities["name"] = func.__name__
 
@@ -95,7 +95,7 @@ def test_case_web(func):
                 driver = webdriver.Remote(command_executor=SELENOID_URL,
                                           desired_capabilities=capabilities)
 
-            func(driver)
+            func(driver, context)
             # ProcessFactory.run(lambda: func(driver, *args, **kwargs))
             # ProcessFactory.run(func, driver)
             # ProcessFactory.finished()
@@ -116,7 +116,7 @@ def test_case_web(func):
 
 class TestFramework:
     @classmethod
-    def run(cls, func, capabilities, test_case, test_plan, build):
+    def run(cls, func, capabilities, context, test_case, test_plan, build):
         # look for the function in the inherited classes
         child = None
         for item in cls.__subclasses__():
@@ -126,7 +126,7 @@ class TestFramework:
         assert child is not None, f"The function {func} is not implemented"
         print(f"For {test_case} running {func}() from {child.__name__}")
         time1 = time.time()
-        result, comment = getattr(child, func)(capabilities)
+        result, comment = getattr(child, func)(capabilities, context)
         elapsed = str(round(time.time() - time1))
         print("Test {} on {}, {}, spent {}s. {}".format(test_case, capabilities["browserName"], results[result], elapsed, comment))
         submit_result(test_case, test_plan, build, result, elapsed, comment, None)
@@ -156,8 +156,5 @@ def default_capabilities(browser):
         ret['version'] = "75.0"
 
     return ret
-
-
-
 
 

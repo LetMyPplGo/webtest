@@ -5,13 +5,11 @@ import requests
 MAIL_SERVER = "http://bh.cyber.rt-solar.ru"
 
 
-
-class MyHTMLParser(HTMLParser):
+class EmailParser(HTMLParser):
     def __init__(self):
         super().__init__()
         self.text_data = ""
         self.links = []
-
 
     def handle_starttag(self, tag, attrs):
         if tag == "a":
@@ -38,7 +36,7 @@ class Email:
         self.html_body = self.email['html']
         self.mail_id = self.email['id']
 
-        html_parser = MyHTMLParser()
+        html_parser = EmailParser()
         html_parser.feed(self.html_body)
 
         self.text_body = html_parser.text_data
@@ -48,9 +46,15 @@ class Email:
 def iterate_emails():
     r = requests.get(f"{MAIL_SERVER}/email", auth=('user', 'q1q1q1q1'))
     assert r.status_code == 200, f"Bad response from {MAIL_SERVER}: {r.status_code}"
-    for one_email in r.json():
-        yield Email(one_email)
+    for one_mail in r.json():
+        yield Email(one_mail)
 
-def delete_email():
-    # TODO: implement
-    pass
+
+def delete_email(mail_id):
+    r = requests.delete(f"{MAIL_SERVER}/email/{mail_id}")
+    assert r.status_code == 200, f"Bad response from {MAIL_SERVER}: {r.status_code}"
+    return 0
+
+
+
+

@@ -1,6 +1,6 @@
 from framework import *
 import tst_users
-from  lib_mail import iterate_emails
+from  lib_mail import iterate_emails, delete_email
 
 # ------------------------------------------------------------- CONSTANTS
 
@@ -22,9 +22,11 @@ Plan:
         . When the test ends it writes the results into the Test in Testlink
 """
 
+delete_email('bcXgJ0Te')
+
 for email in iterate_emails():
     if email.email['id'] == 'bcXgJ0Te':
-        print(email.links)
+        print(email.mail_id, email.links)
 
 # print(tls.whatArgs('createBuild'))
 exit(1)
@@ -33,10 +35,14 @@ test_plan = 740 #257
 
 # get the build for this run, create if it doesn't exist
 app_build = get_build(test_plan)
-assert app_build is not None
+assert app_build is not None, "Failed to get/create app build"
+
+# context is used to pass parameters between test cases.
+# For example organization created in one test is used in the other one
+context = {}
 
 for test_id, script in iterate_scripts_for_test_plan(test_plan):
-    TestFramework.run(script, CAP_OPERA, test_id, test_plan, app_build)
+    TestFramework.run(script, CAP_OPERA, context, test_id, test_plan, app_build)
     # TestFramework.run(script, default_capabilities(browser), test_id, test_plan, app_build)
     # print(f"Test {test_id}, script {script}")
 

@@ -322,6 +322,22 @@ class PageAdminUsers(Page):
     }
 
 
+class PageAdminOrganizations(Page):
+    elements = {}
+
+    def click_create(self):
+        pass
+
+
+class PageCreateOrganization(Page):
+    elements = {}
+
+    def enter_name(self, name):
+        self.enter_text("edit_name", name)
+
+    def click_cancel(self):
+        self.find_element_by_xpath("btn_cancel").click()
+
 class PageEventEdit(Page):
     elements = {
         "mode_vs": "//div[contains(@class, 'v-list-item--two-line')]//span[contains(., 'VS')]",
