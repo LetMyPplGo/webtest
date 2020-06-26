@@ -550,3 +550,240 @@ JavaScript error: , line 0: uncaught exception: undefined
 JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
 JavaScript error: , line 0: uncaught exception: undefined
 1593110983308	Marionette	INFO	Stopped listening on port 46855
+1593160940588	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileScaPQt"
+1593160945171	Marionette	INFO	Listening on port 43783
+1593160945212	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593160962121	Marionette	INFO	Stopped listening on port 43783
+1593161094916	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJ8LT0P"
+1593161099250	Marionette	INFO	Listening on port 35217
+1593161099340	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+console.error: "Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers."
+1593162170989	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileeOvxBz"
+1593162175460	Marionette	INFO	Listening on port 41583
+1593162175508	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593162306139	Marionette	INFO	Stopped listening on port 41583
+console.error: "Error while calling actor 'pagestyle's method 'getLayout'" "node is null"
+console.error: "getLayout@resource://devtools/server/actors/styles.js:944:5\nhandler@resource://devtools/shared/protocol/Actor.js:154:37\nonPacket@resource://devtools/server/devtools-server-connection.js:380:58\nreceiveMessage@resource://devtools/shared/transport/child-transport.js:66:16\n"
+console.error: (new Error("Protocol error (unknownError): node is null from: server0.conn0.child2/pagestyle25", "resource://devtools/shared/protocol/Front.js", 319))
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593163937325	Marionette	INFO	Stopped listening on port 35217
+1593164039297	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilehG6gp1"
+1593164043927	Marionette	INFO	Listening on port 38789
+1593164044017	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593164066515	Marionette	INFO	Stopped listening on port 38789
+1593164115294	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileKV6ClS"
+1593164119974	Marionette	INFO	Listening on port 44967
+1593164120019	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593164142206	Marionette	INFO	Stopped listening on port 44967
+1593164189091	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefaeeCt"
+1593164193639	Marionette	INFO	Listening on port 42863
+1593164193707	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+console.error: "Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers."
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593164623761	Marionette	INFO	Stopped listening on port 42863
+1593164630819	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilesUOpyh"
+1593164635315	Marionette	INFO	Listening on port 37999
+1593164635344	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593164722684	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileNXc4bT"
+1593164727323	Marionette	INFO	Listening on port 38659
+1593164727405	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593164756975	Marionette	INFO	Stopped listening on port 38659
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593164759307	Marionette	INFO	Stopped listening on port 37999
+1593164810005	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefPKs1c"
+1593164814524	Marionette	INFO	Listening on port 34591
+1593164814553	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593164824266	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJ19HOB"
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593164829553	Marionette	INFO	Stopped listening on port 34591
+1593164829635	Marionette	INFO	Listening on port 34033
+1593164829687	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593164839794	Marionette	INFO	Stopped listening on port 34033
+1593164870515	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile2yRZGu"
+1593164875027	Marionette	INFO	Listening on port 45791
+1593164875037	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593164885726	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileGGRJHr"
+1593164890334	Marionette	INFO	Listening on port 43227
+1593164890356	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593164911781	Marionette	INFO	Stopped listening on port 45791
+console.error: "Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers."
+1593165617817	Marionette	INFO	Stopped listening on port 43227
+1593168127105	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileptEpgK"
+1593168131649	Marionette	INFO	Listening on port 41121
+1593168131722	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593168140881	Marionette	INFO	Stopped listening on port 41121
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593168146397	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile3GFgqc"
+1593168150935	Marionette	INFO	Listening on port 38343
+1593168151017	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593168171264	Marionette	INFO	Stopped listening on port 38343
+1593169510490	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePoucR0"
+1593169515084	Marionette	INFO	Listening on port 33123
+1593169515139	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593169522354	Marionette	INFO	Stopped listening on port 33123
+1593169547141	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile1TIBEj"
+1593169551632	Marionette	INFO	Listening on port 42301
+1593169551660	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593169558437	Marionette	INFO	Stopped listening on port 42301
+1593169560823	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilebn3haX"
+1593169565334	Marionette	INFO	Listening on port 39451
+1593169565370	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593169574222	Marionette	INFO	Stopped listening on port 39451
+1593169577514	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileV5s8QE"
+1593169582014	Marionette	INFO	Listening on port 33343
+1593169582042	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593169621946	Marionette	INFO	Stopped listening on port 33343
+1593170724186	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBk4g97"
+1593170728736	Marionette	INFO	Listening on port 45593
+1593170728806	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593170736850	Marionette	INFO	Stopped listening on port 45593
+1593170739224	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilebf2a5G"
+1593170743722	Marionette	INFO	Listening on port 40005
+1593170743746	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593170753393	Marionette	INFO	Stopped listening on port 40005
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593170756822	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileudKje3"
+1593170761260	Marionette	INFO	Listening on port 35795
+1593170761341	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593170773176	Marionette	INFO	Stopped listening on port 35795
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593170936070	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile47xlZ5"
+1593170940583	Marionette	INFO	Listening on port 33681
+1593170940687	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593170946997	Marionette	INFO	Stopped listening on port 33681
+1593170951098	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile9ida66"
+1593170955650	Marionette	INFO	Listening on port 33813
+1593170955713	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593170964610	Marionette	INFO	Stopped listening on port 33813
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593170967930	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletiHs63"
+1593170972505	Marionette	INFO	Listening on port 33663
+1593170972548	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593170984516	Marionette	INFO	Stopped listening on port 33663
+1593170987800	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJEbhYs"
+1593170992247	Marionette	INFO	Listening on port 35857
+1593170992316	Marionette	WARN	TLS certificate errors will be ignored for this session
+1593171085967	Marionette	INFO	Stopped listening on port 35857
+1593172843309	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileQ0nDK7"
+1593172847858	Marionette	INFO	Listening on port 37031
+1593172847928	Marionette	WARN	TLS certificate errors will be ignored for this session
+1593172849232	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileQ11aTw"
+1593172853856	Marionette	INFO	Listening on port 37081
+1593172853951	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+1593172861375	Marionette	INFO	Stopped listening on port 37081
+1593172864663	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilebCgHl7"
+1593172869383	Marionette	INFO	Listening on port 45359
+1593172869493	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593172879058	Marionette	INFO	Stopped listening on port 45359
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1593172882248	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileODcqca"
+1593172882866	Marionette	INFO	Stopped listening on port 37031
+1593172887202	Marionette	INFO	Listening on port 33649
+1593172887267	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://demo1.cyber.rt-solar.ru/js/chunk-vendors.edb2f100.js, line 7: Error: Request failed with status code 401
+JavaScript error: , line 0: uncaught exception: undefined
+1593172898856	Marionette	INFO	Stopped listening on port 33649

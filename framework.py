@@ -74,6 +74,19 @@ class ProcessFactory:
             print(f"Process {Func.func.__name__} is taken from queue and started")
 
 
+def make_driver(capabilities):
+    # Selenoid should be started in advance with:
+    # > cm.exe selenoid start --vnc
+    if USE_LOCAL_FOX:
+        driver = webdriver.Firefox()
+    else:
+        driver = webdriver.Remote(command_executor=SELENOID_URL,
+                                  desired_capabilities=capabilities)
+
+    yield driver
+    driver.close()
+
+
 def test_case_web(func):
     def wrapper(capabilities, context):
         try:
@@ -87,15 +100,17 @@ def test_case_web(func):
                 log_name = func.__name__ + "." + capabilities["browserName"] + "." + time.strftime("%Y%m%d-%H%M%S") + ".log"
                 capabilities["logName"] = log_name
 
-            # Selenoid should be started in advance with:
-            # > cm.exe selenoid start --vnc
-            if USE_LOCAL_FOX:
-                driver = webdriver.Firefox()
-            else:
-                driver = webdriver.Remote(command_executor=SELENOID_URL,
-                                          desired_capabilities=capabilities)
+            # # Selenoid should be started in advance with:
+            # # > cm.exe selenoid start --vnc
+            # if USE_LOCAL_FOX:
+            #     driver = webdriver.Firefox()
+            # else:
+            #     driver = webdriver.Remote(command_executor=SELENOID_URL,
+            #                               desired_capabilities=capabilities)
 
-            func(driver, context)
+            for driver in make_driver(capabilities):
+                func(driver, context)
+
             # ProcessFactory.run(lambda: func(driver, *args, **kwargs))
             # ProcessFactory.run(func, driver)
             # ProcessFactory.finished()

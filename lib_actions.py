@@ -47,10 +47,10 @@ class User:
         page.enter_middle_name(self.middle_name)
         page.enter_last_name(self.last_name)
         page.enter_email(self.email)
-        page.enter_email(self.email)
         page.set_organization(self.organization)
         page.set_role(self.role)
         page.click_create()
+        page.click_created_ok()
 
     def modify(self):
         pass
@@ -72,6 +72,7 @@ class Organization:
         page = lib_pages.PageMainHeader(self.driver).click_administration().click_organizations().click_create()
         page.enter_name(self.name)
         page.click_create()
+        page.click_created_ok()
 
     def modify(self):
         pass

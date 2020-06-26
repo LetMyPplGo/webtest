@@ -8,6 +8,22 @@ import globals
 class Tests(TestFramework):
     @staticmethod
     @test_case_web
+    def always_fail(driver, context):
+        assert False, 'The test failed because it always fails'
+
+    @staticmethod
+    @test_case_web
+    def create_org_by_admin(driver, context):
+        act = Actions(driver)
+        act.login_admin()
+
+        org = Organization(driver)
+        org.fill_random()
+        org.create()
+        context['organization'] = org.name
+
+    @staticmethod
+    @test_case_web
     def create_tutor_by_admin(driver, context):
         act = Actions(driver)
         act.login_admin()
@@ -17,7 +33,7 @@ class Tests(TestFramework):
         tutor.role = globals.ROLE_TUTOR
 
         if "organization" in context:
-            tutor.organization = context.organization
+            tutor.organization = context['organization']
         else:
             org = Organization(driver)
             org.fill_random()
@@ -26,6 +42,37 @@ class Tests(TestFramework):
             context['organization'] = org.name
         # tutor.photo = ""
         tutor.create()
+
+        # TODO: Receive email, get pass link, open it, set pass
+        tutor.email = 'lector@example.com'
+        tutor.password = '1qaz@WSX'
+        context['organization'] = 'Тестовая организация 3'
+
+        context['tutor'] = tutor
+
+        
+    @staticmethod
+    @test_case_web
+    def create_users_by_lector(driver, context):
+        act = Actions(driver)
+        assert 'tutor' in context
+        assert "organization" in context
+        tutor = context['tutor']
+        act.login(tutor.email, tutor.password)
+
+        student = User(driver)
+        student.fill_random()
+        student.role = globals.ROLE_STUDENT
+        student.organization = context['organization']
+        student.create()
+
+        observer = User(driver)
+        observer.fill_random()
+        observer.role = globals.ROLE_OBSERVER
+        observer.organization = context['organization']
+        observer.create()
+        
+        
 
 
     @staticmethod

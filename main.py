@@ -31,7 +31,7 @@ Plan:
 # # print(tls.whatArgs('createBuild'))
 # exit(1)
 
-test_plan = 740 #257
+test_plan = 740
 
 # get the build for this run, create if it doesn't exist
 app_build = get_build(test_plan)
@@ -40,6 +40,7 @@ assert app_build is not None, "Failed to get/create app build"
 # context is used to pass parameters between test cases.
 # For example organization created in one test is used in the other one
 context = {}
+context['organization'] = 'fuFZgZZatE'
 
 for test_id, script in iterate_scripts_for_test_plan(test_plan):
     TestFramework.run(script, CAP_OPERA, context, test_id, test_plan, app_build)

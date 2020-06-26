@@ -9,6 +9,7 @@ from selenium.webdriver.common.by import By
 from framework import BASE_URL
 from time import time, sleep
 import json
+import globals
 
 # month names in the UI
 MONTHS = {
@@ -70,27 +71,26 @@ class Page:
                             2) key in the self.elements dictionary where value is xpath
                             second option makes you write a little less code
         optional named arguments:
-            wait - time to wait for an element
+            wait - time to wait for an element, default value = 10
             format - tulip of values to insert into xpath. For cases when xpath contains {}
+            ec - wait for object to exist (globals.EC_EXISTS) or to become clickable (globals.EC_CLICKABLE)
         """
-        wait = 10
-        if "wait" in kwargs.keys():
-            wait = kwargs["wait"]
-
+        wait = kwargs.get('wait', 10)
         xpath = element
         if element in self.elements:
             xpath = self.elements[element]
         if "format" in kwargs.keys():
             xpath = xpath.format(*kwargs["format"])
         locator = (By.XPATH, xpath)
-        return WebDriverWait(self.driver, wait).until(EC.presence_of_element_located(locator),
+        ec = kwargs.get('ec', globals.EC_EXISTS)
+        wait_func = getattr(EC, ec)
+        return WebDriverWait(self.driver, wait).until(wait_func(locator),
                                                       message=f"Can't find element {element} by locator {locator}")
+        # return WebDriverWait(self.driver, wait).until(EC.presence_of_element_located(locator),
+        #                                               message=f"Can't find element {element} by locator {locator}")
 
     def find_elements_by_xpath(self, element, **kwargs):
-        wait = 10
-        if "wait" in kwargs.keys():
-            wait = kwargs["wait"]
-
+        wait = kwargs.get('wait', 10)
         xpath = element
         if element in self.elements:
             xpath = self.elements[element]
@@ -99,6 +99,7 @@ class Page:
         locator = (By.XPATH, xpath)
         return WebDriverWait(self.driver, wait).until(EC.presence_of_all_elements_located(locator),
                                                       message=f"Can't find elements {element} by locator {locator}")
+
 
     def enter_text(self, element, text):
         elem = self.find_element_by_xpath(element)
@@ -299,9 +300,9 @@ class PageMissions(Page):
 
 class PageAdminHeader(Page):
     elements = {
-        "lnk_users": "//div[contains(.,'Учетные записи')][@class='v-tab']",
-        "lnk_organizations": "//div[contains(.,'Организации')][@class='v-tab']",
-        "lnk_infrastructure": "//div[contains(.,'Инфраструктура')][@class='v-tab']",
+        "lnk_users": "//div[contains(.,'Учетные записи')][@role='tab']",
+        "lnk_organizations": "//div[contains(.,'Организации')][@role='tab']",
+        "lnk_infrastructure": "//div[contains(.,'Инфраструктура')][@role='tab']",
     }
 
     def click_users(self):
@@ -345,6 +346,7 @@ class PageCreateUser(Page):
         'label_symbols_count': "//div[contains(., 'символов')][contains(@class, 'v-text-field__details')]",
         "btn_cancel": "//span[contains(.,'Отменить')]",
         "btn_create": "//button[contains(.,'Отменить')]/following-sibling::button",
+        "btn_created_ok": "//button[contains(., 'ОК')]"
         # TODO: add error text fields
         # TODO: add timezone selector
         # TODO: add photo and password buttons
@@ -368,22 +370,25 @@ class PageCreateUser(Page):
     def enter_status(self, text):
         self.enter_text('edit_status', text)
 
-    def clear_status(self, text):
+    def clear_status(self):
         self.find_element_by_xpath("btn_clear_status").click()
 
-    def click_cancel(self, text):
+    def click_cancel(self):
         self.find_element_by_xpath("btn_cancel").click()
 
-    def click_create(self, text):
+    def click_create(self):
         self.find_element_by_xpath("btn_create").click()
+
+    def click_created_ok(self):
+        self.find_element_by_xpath("btn_created_ok", ec=globals.EC_CLICKABLE).click()
 
     def set_organization(self, name):
         self.find_element_by_xpath("organization_open_list").click()
         self.find_element_by_xpath("organization_list_item", format=(name, )).click()
 
     def set_role(self, name):
-        self.find_element_by_xpath("organization_open_list").click()
-        self.find_element_by_xpath("organization_list_item", format=(name, )).click()
+        self.find_element_by_xpath("role_open_list").click()
+        self.find_element_by_xpath("role_list_item", format=(name, )).click()
 
 
 class PageAdminOrganizations(Page):
@@ -400,7 +405,8 @@ class PageCreateOrganization(Page):
     elements = {
         "edit_name": "//label[contains(., 'Организация')]/following-sibling::input",
         "btn_cancel": "//span[contains(.,'Отменить')]",
-        "btn_create": "//button[contains(.,'Отменить')]/following-sibling::button"
+        "btn_create": "//button[contains(.,'Отменить')]/following-sibling::button",
+        "btn_created_ok": "//button[contains(., 'ОК')]"
     }
 
     def enter_name(self, name):
@@ -410,11 +416,10 @@ class PageCreateOrganization(Page):
         self.find_element_by_xpath("btn_cancel").click()
 
     def click_create(self):
-        self.find_element_by_xpath("btn_create").click()
+        self.find_element_by_xpath("btn_create", ec=globals.EC_CLICKABLE).click()
 
-    def wait_create_clickable(self):
-        # TODO: implement
-        pass
+    def click_created_ok(self):
+        self.find_element_by_xpath("btn_created_ok", ec=globals.EC_CLICKABLE).click()
 
 
 class PageEventEdit(Page):
