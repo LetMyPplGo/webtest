@@ -13,6 +13,21 @@ class Tests(TestFramework):
 
     @staticmethod
     @test_case_web
+    def test_test(driver, context):
+        act = Actions(driver)
+        act.login_admin()
+
+        PageMainHeader(driver).click_administration()
+        PageAdminHeader(driver).click_infrastructure()
+        sleep(2)
+        PageAdminHeader(driver).click_organizations()
+        sleep(2)
+        PageAdminHeader(driver).click_users()
+        sleep(2)
+
+
+    @staticmethod
+    @test_case_web
     def create_org_by_admin(driver, context):
         act = Actions(driver)
         act.login_admin()
@@ -21,6 +36,8 @@ class Tests(TestFramework):
         org.fill_random()
         org.create()
         context['organization'] = org.name
+        # DBG
+        context['organization'] = 'Тестовая организация 3'
 
     @staticmethod
     @test_case_web
@@ -71,8 +88,6 @@ class Tests(TestFramework):
         observer.role = globals.ROLE_OBSERVER
         observer.organization = context['organization']
         observer.create()
-        
-        
 
 
     @staticmethod

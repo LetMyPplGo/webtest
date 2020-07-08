@@ -10,3 +10,7 @@ ROLE_OBSERVER = "Наблюдатель"
 EC_EXISTS = 'presence_of_element_located'
 EC_CLICKABLE = 'element_to_be_clickable'
 
+# Mission Modes
+MODE_SINGLE = "single"
+MODE_VERSUS = "versus"
+

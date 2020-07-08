@@ -112,7 +112,12 @@
   },
   "PageMainHeader": {
     "comment": "Header that is visible on all pages (except infrastructure)",
+    "todo": "add User Name, event timer, other buttons. Replace btn_menu xpath with id",
     "elements": {
+      "btn_menu": {
+        "xpath": "//button[contains(@class, 'v-btn--round')]",
+        "new-xpath": "//.[contains(@class, 'main-menu-container')]//button"
+      },
       "btn_events": {
         "id": "page-main-header-btn-events"
       },
@@ -129,6 +134,7 @@
   },
   "PageEventInList": {
     "comment": "One event in the Events list",
+    "todo": "add get_report button",
     "elements": {
       "event_container": {
         "id": "events-list-event-container"
@@ -464,6 +470,7 @@
   },
   "PageMissionInList": {
     "comment": "One mission in the Missions list",
+    "todo": "add mode_single. Remove id from stars_container",
     "elements": {
       "mission_container": {
         "xpath": "//.[contains(@class, 'mission-container')]"
@@ -475,21 +482,27 @@
         "xpath": "//.[contains(@class, 'mission-industry')]"
       },
       "stars_container": {
+        "id": "mission-stars-container",
         "xpath": "//.[contains(@class, 'mission-stars-container')]"
       },
       "mission_description": {
+        "id": "mission-description",
         "xpath": "//.[contains(@class, 'mission-description')]"
       },
       "btn_new_event": {
+        "id": "btn-new-event",
         "xpath": "//.[contains(@class, 'btn-new-event')]"
       },
       "infra_template": {
+        "id": "mission-infra-template",
         "xpath": "//.[contains(@class, 'mission-infra-template')]"
       },
       "users_limit": {
+        "id": "mission-users-limit",
         "xpath": "//.[contains(@class, 'mission-users-limit')]"
       },
       "time_limit": {
+        "id": "mission-time-limit",
         "xpath": "//.[contains(@class, 'mission-time-limit')]"
       }
     }

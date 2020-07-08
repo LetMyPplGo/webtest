@@ -54,16 +54,23 @@ class Page:
 
     def build_xpath(self, element):
         # TODO: start using it in find_element_by_xpath or rewrite if all elements will have IDs
+        # TODO: explicitly specify name of the json section in ui.json in every class. As they can be reused
         page_name = self.__class__.__name__
-        # try:
-        if UI_MAP[page_name][element]["id"] != "":
-            return "//*[@id='{}']".format(UI_MAP[page_name][element]["id"])
 
-        if UI_MAP[page_name][element]["xpath"] != "":
-            return UI_MAP[page_name][element]["xpath"]
+        # first check if xpath is explicitly specified in the elements dictionary
+        if element in self.elements:
+            return self.elements[element]
 
-        raise ValueError
-        # except
+        # now check that ui.json has id for this element
+        if "id" in UI_MAP[page_name]["elements"][element]:
+            return "//*[@id='{}']".format(UI_MAP[page_name]["elements"][element]["id"])
+
+        # check if ui.json has xpath for this element
+        if "xpath" in UI_MAP[page_name]["elements"][element]:
+            return UI_MAP[page_name]["elements"][element]["xpath"]
+
+        # finally return the element itself
+        return element
 
     def find_element_by_xpath(self, element, **kwargs):
         """element is  either:
@@ -76,9 +83,9 @@ class Page:
             ec - wait for object to exist (globals.EC_EXISTS) or to become clickable (globals.EC_CLICKABLE)
         """
         wait = kwargs.get('wait', 10)
-        xpath = element
-        if element in self.elements:
-            xpath = self.elements[element]
+        xpath = self.build_xpath(element)
+        # if element in self.elements:
+        #     xpath = self.elements[element]
         if "format" in kwargs.keys():
             xpath = xpath.format(*kwargs["format"])
         locator = (By.XPATH, xpath)
@@ -91,22 +98,21 @@ class Page:
 
     def find_elements_by_xpath(self, element, **kwargs):
         wait = kwargs.get('wait', 10)
-        xpath = element
-        if element in self.elements:
-            xpath = self.elements[element]
+        xpath = self.build_xpath(element)
+        # if element in self.elements:
+        #     xpath = self.elements[element]
         if "format" in kwargs.keys():
             xpath.format(*kwargs["format"])
         locator = (By.XPATH, xpath)
         return WebDriverWait(self.driver, wait).until(EC.presence_of_all_elements_located(locator),
                                                       message=f"Can't find elements {element} by locator {locator}")
 
-
     def enter_text(self, element, text):
         elem = self.find_element_by_xpath(element)
         elem.send_keys(text)
 
     def element_exists(self, element):
-        elements = self.find_elements_by_xpath(element, wait=2)
+        elements = self.driver.find_elements(By.XPATH, self.build_xpath(element))
         if len(elements) == 0:
             return False
         return True
@@ -116,66 +122,50 @@ class Page:
 
 
 class PageLogin(Page):
-    elements = {
-        "edit_name": "//input[@type='text']",
-        "edit_pass": "//input[@type='password']",
-        "btn_enter": "//span[@class='v-btn__content'][contains(.,'войти')]",
-        "lnk_forgotPass": "//a[@class='black--text mt-4 d-block'][contains(.,'Забыли пароль?')]",
-        "edit_email": "(//input[@type='text'])[2]",
-        "btn_cancel": "//button[contains(., 'ОТМЕНИТЬ')]",
-        "btn_send": "//button[@type='button'][contains(.,'ДАЛЕЕ')]",
-        "err_wrong_email_format": "//div[@class='v-messages__message'][contains(.,'Неверный формат почты')]",
-        "err_user_not_found": "//div[@class='v-messages__message'][contains(.,'Пользователь с таким адресом не найден')]",
-    }
-
     def enter_name(self, name):
-        self.enter_text("edit_name", name)
+        self.enter_text("email", name)
 
     def enter_pass(self, password):
-        self.enter_text("edit_pass", password)
+        self.enter_text("password", password)
 
     def click_enter(self):
         self.find_element_by_xpath("btn_enter").click()
         return PageEvents(self.driver)
 
     def click_forgot_pass(self):
-        self.find_element_by_xpath("lnk_forgotPass").click()
+        self.find_element_by_xpath("lnk_forgot_pass").click()
 
-    def enter_email(self, email):
-        self.enter_text("edit_email", email)
+    def forgot_pass_enter_email(self, email):
+        self.enter_text("forgot_pass_email", email)
 
-    def click_cancel(self):
-        self.find_element_by_xpath("btn_cancel").click()
+    def forgot_pass_click_cancel(self):
+        self.find_element_by_xpath("btn_forgot_pass_cancel").click()
 
-    def click_send_email(self):
-        self.find_element_by_xpath("btn_send").click()
+    def forgot_pass_click_send(self):
+        self.find_element_by_xpath("btn_forgot_pass_enter").click()
 
-    def error_wrong_format(self):
-        return self.element_exists("err_wrong_email_format")
+    def forgot_pass_get_error(self):
+        return self.element_exists("forgot_pass_email_error")
 
-    def error_user_not_found(self):
-        return self.element_exists("err_user_not_found")
+    def todo(self):
+        # TODO: login/pass error check
+        pass
 
 
 class PageMainHeader(Page):
     """This is header of all pages"""
-    elements = {
-        "btn_events": "//span[@class='v-btn__content'][contains(.,'Мероприятия')]",
-        "btn_missions": "//span[@class='v-btn__content'][contains(.,'Миссии')]",
-        "btn_administration": "//span[@class='v-btn__content'][contains(.,'Административная панель')]",
-        "btn_exit": "//i[contains(@class,'v-icon notranslate mdi mdi-exit-to-app theme--dark')]",
-        "text_welcome": "//span[contains(@class,'white--text')]",
-    }
-
     def click_events(self):
+        self.find_element_by_xpath("btn_menu").click()
         self.find_element_by_xpath("btn_events").click()
         return PageEvents(self.driver)
 
     def click_missions(self):
+        self.find_element_by_xpath("btn_menu").click()
         self.find_element_by_xpath("btn_missions").click()
         return PageMissions(self.driver)
 
     def click_administration(self):
+        self.find_element_by_xpath("btn_menu").click()
         self.find_element_by_xpath("btn_administration").click()
         return PageAdminHeader(self.driver)
 
@@ -191,130 +181,127 @@ class PageEventInList(Page):
     def __init__(self, driver, name):
         super().__init__(driver)
         self.name = name
-        self.div_event_by_name = f"//div[contains(@class, 'v-card v-sheet')][contains(., '{name}')]"
+        self.event_container = self.build_xpath("event_container") + f"[contains(., '{name}')]"
         self.elements = {
-            "div_event_by_name": self.div_event_by_name,
-            "lnk_event_name": self.div_event_by_name + "//a[contains(@href, 'event')]",
-            "lnk_teacher": self.div_event_by_name + "//span[contains(@class,'ml-3')]",
-            "text_users_amount": self.div_event_by_name + "//span[contains(@class, 'mr-10')]",
-            "text_duration": self.div_event_by_name + "//span[contains(@class, 'mr-2')]",
-            "text_organization": self.div_event_by_name + "//div[contains(@class, 'v-list-item__content text-right')]",
-            "text_mission_name": self.div_event_by_name + "//div[contains(@class, 'pa-0 col-sm-4 col-12')]//h4",
-            "text_mission_text": self.div_event_by_name + "//div[contains(@class, 'pa-1 col-sm-5 col-12')]//div//p",
-            "div_stars": self.div_event_by_name + "//div[contains(@class, 'v-rating')]//button[contains(@class, 'mdi-star ')]",
-            "btn_get_report": self.div_event_by_name + "//span[@class='v-btn__content'][contains(.,'Получить отчёт')]",
-            "text_state": self.div_event_by_name + "//span[contains(@class,'mr-3')]",
+            "event_container": self.event_container,
+            "event_name": self.event_container + self.build_xpath("event_name"),
+            "tutor": self.event_container + self.build_xpath("tutor"),
+            "users_amount": self.event_container + self.build_xpath("users_amount"),
+            "users_limit": self.event_container + self.build_xpath("users_limit"),
+            "time_limit": self.event_container + self.build_xpath("time_limit"),
+            "organization": self.event_container + self.build_xpath("organization"),
+            "mission_name": self.event_container + self.build_xpath("mission_name"),
+            "mission_description": self.event_container + self.build_xpath("mission_description"),
+            "stars": self.event_container + self.build_xpath("stars_container") + "//button[contains(@class, 'mdi-star ')]",
+            "btn_get_report": self.event_container + "//span[@class='v-btn__content'][contains(.,'Получить отчёт')]",
+            "state": self.event_container + self.build_xpath("state"),
         }
 
     def get_event_data(self):
         """returns all data from the event by its name"""
-        same_name_amount = len(self.find_elements_by_xpath("div_event_by_name"))
+        same_name_amount = len(self.find_elements_by_xpath("event_container"))
         ret = {
-            "event_name": self.find_element_by_xpath("lnk_event_name").text,
-            "users_amount": self.find_element_by_xpath("text_users_amount").text,
-            "duration": self.find_element_by_xpath("text_duration").text,
-            "organization": self.find_element_by_xpath("text_organization").text,
-            "mission_name": self.find_element_by_xpath("text_mission_name").text,
-            "mission_text": self.find_element_by_xpath("text_mission_text").text,
-            "teacher": self.find_element_by_xpath("lnk_teacher").text,
-            "state": self.find_element_by_xpath("text_state").text,
+            "event_name": self.find_element_by_xpath("event_name").text,
+            "users_amount": self.find_element_by_xpath("users_amount").text,
+            "users_limit": self.find_element_by_xpath("users_limit").text,
+            "time_limit": self.find_element_by_xpath("time_limit").text,
+            "organization": self.find_element_by_xpath("organization").text,
+            "mission_name": self.find_element_by_xpath("mission_name").text,
+            "mission_description": self.find_element_by_xpath("mission_description").text,
+            "tutor": self.find_element_by_xpath("tutor").text,
+            "state": self.find_element_by_xpath("state").text,
             "report_exists": self.element_exists("btn_get_report"),
-            "stars": int(len(self.find_elements_by_xpath("div_stars")) / same_name_amount)
+            "stars": int(len(self.find_elements_by_xpath("stars")) / same_name_amount),
+            "same_name_amount": same_name_amount
         }
         return ret
 
     def click_event(self):
-        self.find_element_by_xpath("lnk_event_name").click()
+        self.find_element_by_xpath("event_name").click()
 
     def click_teacher(self):
-        self.find_element_by_xpath("lnk_teacher").click()
+        self.find_element_by_xpath("tutor").click()
 
     def click_report(self):
         self.find_element_by_xpath("btn_get_report").click()
 
 
 class PageEvents(Page):
-    div_event = "//div[contains(@class, 'v-card v-sheet')]"
-    div_event_by_name = "//div[contains(@class, 'v-card v-sheet')][contains(., '{}')]"
-
-    def get_event_by_name(self, name):
-        """return the PageEvent object from the list by its name"""
-        element = self.find_elements_by_xpath(self.div_event_by_name.format(name))
-        if len(element) == 0:
-            return None
-        return PageEventInList(self.driver, name)
+    """Someday this class will contain Search Event methods"""
+    pass
 
 
-class PageMission(Page):
+class PageMissionInList(Page):
     def __init__(self, driver, name):
         super().__init__(driver)
         self.name = name
-        self.div_mission_by_name = f"//div[contains(@class, 'v-card v-sheet')][contains(., '{name}')]"
+        self.mission_container = self.build_xpath("mission_container") + f"[contains(., '{name}')]"
         self.elements = {
-            "div_mission_by_name": self.div_mission_by_name,
-            "mission_name": self.div_mission_by_name + "//div[contains(@class, 'v-list-item--two-line')]//div[contains(@class, 'v-list-item__title')]",
-            "industry": self.div_mission_by_name + "//div[contains(@class, 'v-list-item--two-line')]//div[contains(@class, 'v-list-item__subtitle')]",
-            "mode_single": self.div_mission_by_name + "//i[contains(@class,'mdi-shield')]",
-            "stars": self.div_mission_by_name + "//div[contains(@class, 'v-rating')]//button[contains(@class, 'mdi-star ')]",
-            "infra_template": self.div_mission_by_name + "//div[contains(@class, 'card-footer-background')]//div[contains(@class, 'v-list-item__title')]",
-            "users_limit": self.div_mission_by_name + "//span[contains(@class, 'mr-10')]",
-            "duration_limit": self.div_mission_by_name + "//span[contains(@class, 'mr-2')]",
-            "description": self.div_mission_by_name + "//div[contains(@class, 'col-sm-10')]",
-            "lnk_new_event": self.div_mission_by_name + "//a[contains(@class, 'v-btn')]",
+            "mission_container": self.mission_container,
+            "mission_name": self.mission_container + self.build_xpath("mission_name"),
+            "industry": self.mission_container + self.build_xpath("industry"),
+            # "mode_single": self.mission_container + self.build_xpath(""),
+            "stars": self.mission_container + self.build_xpath("stars_container") + "//button[contains(@class, 'mdi-star ')]",
+            "infra_template": self.mission_container + self.build_xpath("infra_template"),
+            "users_limit": self.mission_container + self.build_xpath("users_limit"),
+            "time_limit": self.mission_container + self.build_xpath("time_limit"),
+            "description": self.mission_container + self.build_xpath("mission_description"),
+            "btn_new_event": self.mission_container + self.build_xpath("btn_new_event"),
+            # "mission_name": self.mission_container + "//div[contains(@class, 'v-list-item--two-line')]//div[contains(@class, 'v-list-item__title')]",
+            # "industry": self.mission_container + "//div[contains(@class, 'v-list-item--two-line')]//div[contains(@class, 'v-list-item__subtitle')]",
+            "mode_single": self.mission_container + "//i[contains(@class,'mdi-shield')]",
+            # "stars": self.mission_container + "//div[contains(@class, 'v-rating')]//button[contains(@class, 'mdi-star ')]",
+            # "infra_template": self.mission_container + "//div[contains(@class, 'card-footer-background')]//div[contains(@class, 'v-list-item__title')]",
+            # "users_limit": self.mission_container + "//span[contains(@class, 'mr-10')]",
+            # "duration_limit": self.mission_container + "//span[contains(@class, 'mr-2')]",
+            # "description": self.mission_container + "//div[contains(@class, 'col-sm-10')]",
+            # "lnk_new_event": self.mission_container + "//a[contains(@class, 'v-btn')]",
         }
 
     def get_mission_data(self):
         """returns all data from the event by its name"""
-        same_name_amount = len(self.find_elements_by_xpath("div_mission_by_name"))
+        same_name_amount = len(self.find_elements_by_xpath("mission_container"))
         ret = {
             "mission_name": self.find_element_by_xpath("mission_name").text,
             "industry": self.find_element_by_xpath("industry").text,
-            # "mode_single": self.find_element_by_xpath("mode_single").text,
             "stars": int(len(self.find_elements_by_xpath("stars")) / same_name_amount),
             "infra_template": self.find_element_by_xpath("infra_template").text,
             "users_limit": self.find_element_by_xpath("users_limit").text,
-            "duration_limit": self.find_element_by_xpath("duration_limit").text,
+            "time_limit": self.find_element_by_xpath("time_limit").text,
             "description": self.find_element_by_xpath("description").text,
+            "same_name_amount": same_name_amount,
         }
         if self.element_exists("mode_single"):
-            ret["mode"] = "single"
+            ret["mode"] = globals.MODE_SINGLE
 
         return ret
 
     def click_new_event(self):
-        self.find_element_by_xpath("lnk_new_event").click()
+        self.find_element_by_xpath("btn_new_event").click()
         return PageEventEdit(self.driver)
 
 
 class PageMissions(Page):
-    div_mission = "//div[contains(@class, 'v-card v-sheet')]"
-    div_mission_by_name = "//div[contains(@class, 'v-card v-sheet')][contains(., '{}')]"
-
-    def get_mission_by_name(self, name):
-        """return the PageEvent object from the list by its name"""
-        element = self.find_elements_by_xpath(self.div_mission_by_name.format(name))
-        if len(element) == 0:
-            return None
-        return PageMission(self.driver, name)
+    """This class will contain Missions search actions"""
+    pass
 
 
 class PageAdminHeader(Page):
-    elements = {
-        "lnk_users": "//div[contains(.,'Учетные записи')][@role='tab']",
-        "lnk_organizations": "//div[contains(.,'Организации')][@role='tab']",
-        "lnk_infrastructure": "//div[contains(.,'Инфраструктура')][@role='tab']",
-    }
-
     def click_users(self):
-        self.find_element_by_xpath("lnk_users").click()
+        self.find_element_by_xpath("btn_users").click()
         return PageAdminUsers(self.driver)
 
     def click_organizations(self):
-        self.find_element_by_xpath("lnk_organizations").click()
+        self.find_element_by_xpath("btn_organizations").click()
         return PageAdminOrganizations(self.driver)
 
     def click_infrastructure(self):
-        self.find_element_by_xpath("lnk_infrastructure").click()
+        self.find_element_by_xpath("btn_infrastructure").click()
+
+    def check_infra_error(self):
+        if self.element_exists("infrastructure_has_error"):
+            return True
+        return False
 
 
 class PageAdminUsers(Page):
@@ -324,7 +311,7 @@ class PageAdminUsers(Page):
     }
 
     def click_create(self):
-        self.find_element_by_xpath("btn_create").click()
+        self.find_element_by_xpath("btn_new_user").click()
         return PageCreateUser(self.driver)
 
 

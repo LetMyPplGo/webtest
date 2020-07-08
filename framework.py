@@ -75,6 +75,9 @@ class ProcessFactory:
 
 
 def make_driver(capabilities):
+    # the idea was to close driver automatically after the func
+    # but it doesn't work, after assert nobody calls next(make_driver()). So just manually do driver.close()
+
     # Selenoid should be started in advance with:
     # > cm.exe selenoid start --vnc
     if USE_LOCAL_FOX:
@@ -89,27 +92,28 @@ def make_driver(capabilities):
 
 def test_case_web(func):
     def wrapper(capabilities, context):
+        capabilities["name"] = func.__name__
+
+        if capabilities["enableVideo"]:
+            video_name = func.__name__ + "." + capabilities["browserName"] + "." + time.strftime("%Y%m%d-%H%M%S") + ".mp4"
+            capabilities["videoName"] = video_name
+
+        if capabilities["enableLog"]:
+            log_name = func.__name__ + "." + capabilities["browserName"] + "." + time.strftime("%Y%m%d-%H%M%S") + ".log"
+            capabilities["logName"] = log_name
+
+        # Selenoid should be started in advance with:
+        # > cm.exe selenoid start --vnc
+        if USE_LOCAL_FOX:
+            driver = webdriver.Firefox()
+        else:
+            driver = webdriver.Remote(command_executor=SELENOID_URL,
+                                      desired_capabilities=capabilities)
+
         try:
-            capabilities["name"] = func.__name__
-
-            if capabilities["enableVideo"]:
-                video_name = func.__name__ + "." + capabilities["browserName"] + "." + time.strftime("%Y%m%d-%H%M%S") + ".mp4"
-                capabilities["videoName"] = video_name
-
-            if capabilities["enableLog"]:
-                log_name = func.__name__ + "." + capabilities["browserName"] + "." + time.strftime("%Y%m%d-%H%M%S") + ".log"
-                capabilities["logName"] = log_name
-
-            # # Selenoid should be started in advance with:
-            # # > cm.exe selenoid start --vnc
-            # if USE_LOCAL_FOX:
-            #     driver = webdriver.Firefox()
-            # else:
-            #     driver = webdriver.Remote(command_executor=SELENOID_URL,
-            #                               desired_capabilities=capabilities)
-
-            for driver in make_driver(capabilities):
-                func(driver, context)
+            # for driver in make_driver(capabilities):
+            func(driver, context)
+            driver.close()
 
             # ProcessFactory.run(lambda: func(driver, *args, **kwargs))
             # ProcessFactory.run(func, driver)
@@ -117,6 +121,7 @@ def test_case_web(func):
         except AssertionError as err:
             # TODO: if function creates an archive to attach to fail, collect it here and return as third parameter
             #       the archive can be named by the function name func.__name__
+            driver.close()
             # if assert has the message return it as comment, otherwise use the assert body
             if str(err) != "":
                 return R_FAIL, f"{err}"
@@ -158,7 +163,9 @@ def get_build(test_plan):
             return build['id']
 
     # if not - add new
-    return tls.createBuild(test_plan, app_build, "Created by autotest")
+    result = tls.createBuild(test_plan, app_build, "Created by autotest")
+    print (result)
+    return result[0]['id']
 
 
 def default_capabilities(browser):

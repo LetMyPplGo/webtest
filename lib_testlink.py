@@ -3,7 +3,7 @@ import testlink
 SERVER_URL = "http://tl.cyber.rt-solar.ru/lib/api/xmlrpc/v1/xmlrpc.php"
 DEVKEY = "3b4b411e146366a7d233408c6dfd8fe6"
 PROJECT_NAME = "CyberPolygon"
-DO_NOT_SUBMIT_RESULTS = False
+DO_NOT_SUBMIT_RESULTS = True
 
 tls = testlink.TestlinkAPIClient(SERVER_URL, DEVKEY)
 
