@@ -3,37 +3,40 @@
     "comment": "Login page and Forget Password popup",
     "elements": {
       "header": {
-        "id": ""
+        "id": "login-page-header"
       },
       "email": {
-        "id": ""
+        "id": "login-page-email"
       },
       "email_error": {
-        "id": ""
+		"xpath": "//.[contains(@class, 'login-page-email-container')]//.[contains(@class, 'v-messages__message')]"
       },
       "password": {
-        "id": ""
+        "id": "login-page-password"
+      },
+      "password-error": {
+		"xpath": "//.[contains(@class, 'login-page-password-container')]//.[contains(@class, 'v-messages__message')]"
       },
       "btn_enter": {
-        "id": ""
+        "id": "login-page-btn-enter"
       },
       "login_error": {
-        "id": ""
+        "id": "login-page-login-error"
       },
       "lnk_forgot_pass": {
-        "id": ""
+        "id": "login-page-forgot-password-link"
       },
       "forgot_pass_email": {
-        "id": ""
+        "id": "login-page-forgot-pass-email"
       },
       "forgot_pass_email_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'login-page-forgot-pass-email-container')]//.[contains(@class, 'v-messages__message')]"
       },
       "btn_forgot_pass_cancel": {
-        "id": ""
+        "id": "login-page-btn-forgot-pass-cancel"
       },
       "btn_forgot_pass_enter": {
-        "id": ""
+        "id": "login-page-btn-forgot-pass-enter"
       }
     }
   },
@@ -41,41 +44,41 @@
     "comment": "New Password page",
     "elements": {
       "header": {
-        "id": ""
+        "id": "page-new-password-header"
       },
       "email": {
-        "id": ""
+        "id": "page-new-password-email"
       },
       "password": {
-        "id": ""
+        "id": "page-new-password-password"
       },
       "repeat_password": {
-        "id": ""
+        "id": "page-new-password-repeat-password"
       },
       "hint_container": {
-        "id": ""
+        "id": "page-new-password-hint-container"
       },
       "hint_item": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'hint-item')]"
       },
       "btn_save": {
-        "id": ""
+        "id": "page-new-password-btn-save"
       },
       "ok_popup": {
-        "id": ""
+        "id": "page-new-password-ok-popup"
       },
       "ok_popup_header": {
-        "id": ""
+        "id": "page-new-password-ok-popup-header"
       },
       "ok_popup_message": {
-        "id": ""
+        "id": "page-new-password-ok-popup-message"
       },
       "btn_ok_popup_ok": {
-        "id": ""
+        "id": "page-new-password-ok-popup-ok"
       },
       "error_message": {
         "comment": "passwords do not match / minimum requirements are not met",
-        "id": ""
+        "id": "page-new-passwords-error-message"
       }
     }
   },
@@ -83,13 +86,13 @@
     "comment": "when user tries to use the link twice",
     "elements": {
       "header": {
-        "id": ""
+        "id": "page-new-password-error-header"
       },
       "message": {
-        "id": ""
+        "id": "page-new-password-error-message"
       },
       "btn_back": {
-        "id": ""
+        "id": "page-new-password-error-btn-back"
       }
     }
   },
@@ -97,13 +100,13 @@
     "comment": "No permissions to view this page",
     "elements": {
       "header": {
-        "id": ""
+        "id": "error-header"
       },
       "message": {
-        "id": ""
+        "id": "error-text"
       },
       "btn_back": {
-        "id": ""
+        "id": "error-btn-back"
       }
     }
   },
@@ -111,19 +114,16 @@
     "comment": "Header that is visible on all pages (except infrastructure)",
     "elements": {
       "btn_events": {
-        "id": ""
+        "id": "page-main-header-btn-events"
       },
       "btn_missions": {
-        "id": ""
+        "id": "page-main-header-btn-missions"
       },
       "btn_administration": {
-        "id": ""
+        "id": "page-main-header-btn-administration"
       },
       "btn_exit": {
-        "id": ""
-      },
-      "text_welcome": {
-        "id": ""
+        "id": "page-main-header-btn-exit"
       }
     }
   },
@@ -131,46 +131,40 @@
     "comment": "One event in the Events list",
     "elements": {
       "event_container": {
-        "id": ""
+        "id": "events-list-event-container"
       },
       "event_name": {
-        "id": ""
+        "id": "events-list-event-name"
       },
       "users_amount": {
-        "id": ""
+        "id": "events-list-users-amount"
       },
       "users_limit": {
-        "id": ""
+        "id": "events-list-users-limit"
       },
       "time_limit": {
-        "id": ""
+        "id": "events-list-time-limit"
       },
       "organization": {
-        "id": ""
-      },
-      "mode": {
-        "id": ""
+        "id": "events-list-organization"
       },
       "mission_name": {
-        "id": ""
+        "id": "events-list-mission-name"
       },
       "mission_description": {
-        "id": ""
+        "id": "events-list-mission-description"
       },
       "stars_container": {
-        "id": ""
-      },
-      "btn_report": {
-        "id": ""
+        "id": "events-list-stars-container"
       },
       "time_to_start": {
-        "id": ""
+        "id": "events-list-event-time-to-start"
       },
       "tutor": {
-        "id": ""
+        "id": "events-list-event-tutor"
       },
       "state": {
-        "id": ""
+        "id": "events-list-event-state"
       }
     }
   },
@@ -178,103 +172,97 @@
     "comment": "Event card in the view mode",
     "elements": {
       "btn_back": {
-        "id": ""
+        "id": "event-card-btn-back"
       },
       "event_name": {
-        "id": ""
+        "id": "event-card-event-name"
       },
       "organization": {
-        "id": ""
+        "id": "event-organization-name"
       },
       "mode": {
-        "id": ""
+        "id": "event-mission-mode"
       },
       "mission_name": {
-        "id": ""
-      },
-      "industry": {
-        "id": ""
+        "id": "event-mission-name"
       },
       "infra_template": {
-        "id": ""
+        "id": "event-mission-infra-template"
       },
       "users_limit": {
-        "id": ""
+        "id": "event-mission-users-limit"
       },
       "time_limit": {
-        "id": ""
+        "id": "event-mission-time-limit"
       },
       "stars_container": {
-        "id": ""
+        "id": "event-mission-stars-container"
       },
       "time_to_start": {
-        "id": ""
+        "id": "event-card-time-to-start"
       },
       "btn_run": {
-        "id": ""
+        "id": "event-card-run-event-btn"
       },
       "btn_console": {
-        "id": ""
-      },
-      "btn_report": {
-        "id": ""
+        "id": "event-card-btn-console"
       },
       "btn_about_mission": {
-        "id": ""
+        "id": "event-card-btn-about-mission"
       },
       "btn_edit_event": {
-        "id": ""
+        "id": "event-card-btn-edit-event"
       },
       "state": {
-        "id": ""
+        "id": "event-card-event-state"
       },
       "cb_autostart": {
-        "id": ""
+        "id": "event-card-cb-autostart"
       },
       "start_time": {
-        "id": ""
+        "id": "event-card-start-time"
       },
       "tutor_container": {
-        "id": ""
+        "id": "event-card-tutor-container"
       },
       "tutor_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-card-tutor-name')]"
       },
       "tutor_email": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-card-tutor-email')]"
       },
       "tutor_occupation": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-card-tutor-occupation')]"
       },
       "student_container": {
-        "id": ""
+        "id": "event-card-student-container"
       },
       "student_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-card-student-name')]"
       },
       "student_email": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-card-student-email')]"
       },
       "student_occupation": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-card-student-occupation')]"
       },
       "observer_container": {
-        "id": ""
+        "id": "event-card-observer-container"
       },
       "observer_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-card-observer-name')]"
       },
       "observer_email": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-card-observer-email')]"
       },
       "observer_occupation": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-card-observer-occupation')]"
       },
       "created_by": {
-        "id": ""
+        "id": "event-card-created-by"
       },
       "created_date": {
-        "id": ""
+        "id": "event-card-created-at"
       }
     }
   },
@@ -282,156 +270,153 @@
     "comment": "Event card in the create/edit mode",
     "elements": {
       "btn_back": {
-        "id": ""
+        "id": "event-create-edit-btn-back"
       },
       "organization": {
-        "id": ""
+        "id": "event-organization-name"
       },
       "mode": {
-        "id": ""
+        "id": "event-organization-mode"
       },
       "mission_name": {
-        "id": ""
-      },
-      "industry": {
-        "id": ""
+        "id": "event-mission-name"
       },
       "infra_template": {
-        "id": ""
+        "id": "event-mission-infra-template"
       },
       "users_limit": {
-        "id": ""
+        "id": "event-mission-users-limit"
       },
       "time_limit": {
-        "id": ""
+        "id": "event-mission-time-limit"
       },
       "stars_container": {
-        "id": ""
+        "id": "event-mission-stars-container"
       },
       "event_name": {
-        "id": ""
+        "id": "event-create-edit-event-name"
       },
       "event_name_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-create-edit-event-name')]//.[contains(@class, 'v-messages__message')]"
       },
       "btn_organization": {
         "comment": "button to open organization drop-down list",
-        "id": ""
+        "id": "event-create-edit-organization-selector"
       },
       "organization_item": {
         "comment": "one item in the organizations list",
-        "id": ""
+        "xpath": "//.[contains(@class, 'select-organization-item')]"
       },
       "organization_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-organization-container')]//.[contains(@class, 'v-messages__message')]"
       },
       "organization_change_popup": {
         "comment": "popup when organization changes",
-        "id": ""
+        "id": "event-create-edit-organization-change-popup"
       },
       "organization_change_popup_text": {
         "comment": "message on the popup when organization changes",
-        "id": ""
+        "id": "event-create-edit-organization-change-popup-text"
       },
       "btn_organization_change_popup_yes": {
         "comment": "button: yes change the organization loosing all data",
-        "id": ""
+        "id": "event-create-edit-organization-btn-change-yes"
       },
       "btn_organization_change_popup_no": {
         "comment": "button: no, cancel organization change",
-        "id": ""
+        "id": "event-create-edit-organization-btn-change-no"
       },
       "start_date": {
-        "id": ""
+        "id": "event-create-edit-start-date"
       },
       "start_date_header": {
         "comment": "date picker header, switch to Month/Year view",
-        "id": ""
+        "xpath": "//.[@id='event-create-edit-start-date']//.[contains(@class, 'v-date-picker-header')]"
       },
       "start_date_container": {
         "comment": "container of the list/table for Year/Month/Day",
-        "id": ""
+        "id": "event-create-edit-start-date-container"
       },
       "start_date_error": {
-        "id": ""
+        "xpath": "//.[@id='event-create-edit-start-date-container']//.[contains(@class, 'v-messages__message')]"
       },
       "start_time": {
-        "id": ""
+        "id": "event-create-edit-start-time"
       },
       "start_time_error": {
         "comment": "not always an error, can be a hint also",
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-create-edit-start-time')]//.[contains(@class, 'v-messages__message')]"
       },
       "btn_tutor": {
         "comment": "button to open tutor drop-down list",
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-create-edit-tutor-selector')]//.[contains(@class, 'mdi-menu-down')]"
       },
       "tutor_item": {
         "comment": "one item in the tutor list",
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-create-edit-tutor-select-tutor-item')]"
       },
       "btn_remove_tutor": {
         "comment": "clean the tutor input",
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-create-edit-tutor-selector')]//.[contains(@class, 'mdi-close')]"
       },
       "no_tutors_found": {
         "comment": "text when no tutors for chosen organization",
-        "id": ""
+        "id": "event-create-edit-organization-no-tutors-found"
       },
       "students_amount": {
-        "id": ""
+        "id": "event-create-edit-students-amount"
       },
       "students_limit": {
-        "id": ""
+        "id": "event-create-edit-students-limit"
       },
       "btn_add_students": {
-        "id": ""
+        "id": "event-create-edit-students-btn-add-students"
       },
       "students_container": {
-        "id": ""
+        "id": "event-create-edit-students-container"
       },
       "btn_student_delete": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'student-delete-btn')]"
       },
       "student_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'student-name')]"
       },
       "student_occupation": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'student-occupation')]"
       },
       "observers_amount": {
-        "id": ""
+        "id": "observers-amount"
       },
       "btn_add_observers": {
-        "id": ""
+        "id": "event-create-edit-btn-add-observers"
       },
       "observers_container": {
-        "id": ""
+        "id": "event-create-edit-observers-container"
       },
       "btn_observer_delete": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'observer-delete-btn')]"
       },
       "observer_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'observer-name')]"
       },
       "observer_occupation": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'observer_occupation')]"
       },
       "btn_save": {
         "comment": "save event changes / create new event",
-        "id": ""
+        "id": "event-create-edit-btn-save"
       },
       "ok_popup": {
-        "id": ""
+        "id": "event-create-edit-ok-popup"
       },
       "ok_popup_header": {
-        "id": ""
+        "id": "event-create-edit-ok-popup-header"
       },
       "ok_popup_message": {
-        "id": ""
+        "id": "event-create-edit-ok-popup-message"
       },
       "btn_ok_popup": {
-        "id": ""
+        "id": "event-create-edit-ok-popup"
       }
     }
   },
@@ -439,41 +424,41 @@
     "comment": "Popup for adding students & observers",
     "elements": {
       "header": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'popup-add-members-header')]"
       },
       "search": {
-        "id": ""
+        "id": "popup-add-members-search"
       },
       "btn_clean_search": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'popup-add-members-search')]//.[contains(@class, 'mdi-close')]"
       },
       "ppl_amount": {
-        "id": ""
+        "id": "members-amount"
       },
       "ppl_limit": {
-        "id": ""
+        "id": "members-limit"
       },
       "not_found": {
         "comment": "no students in organization OR no observers at all OR no ppl found for this search",
-        "id": ""
+        "xpath": "//.[contains(@class, 'popup-add-members-not-found')]"
       },
       "person_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'popup-add-members-person-container')]"
       },
       "person_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'popup-add-members-person-name')]"
       },
       "person_occupation": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'popup-add-members-person-occupation')]"
       },
       "cb_person_choose": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'popup-add-members-cb-person-choose')]"
       },
       "btn_cancel": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'popup-add-members-btn-cancel')]"
       },
       "btn_save": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'popup-add-members-btn-save')]"
       }
     }
   },
@@ -481,34 +466,31 @@
     "comment": "One mission in the Missions list",
     "elements": {
       "mission_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'mission-container')]"
       },
       "mission_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'mission-name')]"
       },
       "industry": {
-        "id": ""
-      },
-      "mode": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'mission-industry')]"
       },
       "stars_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'mission-stars-container')]"
       },
       "mission_description": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'mission-description')]"
       },
       "btn_new_event": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'btn-new-event')]"
       },
       "infra_template": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'mission-infra-template')]"
       },
       "users_limit": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'mission-users-limit')]"
       },
       "time_limit": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'mission-time-limit')]"
       }
     }
   },
@@ -516,17 +498,17 @@
     "comment": "Header of the admin panel",
     "elements": {
       "btn_users": {
-        "id": ""
+        "id": "admin-panel-btn-users"
       },
       "btn_organizations": {
-        "id": ""
+        "id": "admin-panel-btn-organizations"
       },
       "btn_infrastructure": {
-        "id": ""
+        "id": "admin-panel-btn-infrastructure"
       },
       "infrastructure_has_error": {
         "comment": "sign near the infra button, appears when there are infra errors",
-        "id": ""
+        "id": "admin-panel-btn-infrastructure-error"
       }
     }
   },
@@ -534,58 +516,58 @@
     "comment": "Admin -> Users list",
     "elements": {
       "btn_new_user": {
-        "id": ""
+        "id": "btn-new-user"
       },
       "header_name": {
-        "id": ""
+        "id": "header-fullName"
       },
       "header_role": {
-        "id": ""
+        "id": "header-role"
       },
       "header_curates": {
-        "id": ""
+        "id": "header-curated"
       },
       "header_edit": {
-        "id": ""
+        "id": "header-edit"
       },
       "header_active": {
-        "id": ""
+        "id": "header-enabled"
       },
       "header_organization": {
-        "id": ""
+        "id": "header-organization"
       },
       "header_occupation": {
-        "id": ""
+        "id": "header-position"
       },
       "header_created_date": {
-        "id": ""
+        "id": "header-createdTime"
       },
       "user_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-container')]"
       },
       "user_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-name-link')]"
       },
       "user_role": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-role')]"
       },
       "user_curates": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-curated')]"
       },
       "user_edit": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-edit')]"
       },
       "user_active": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-active')]"
       },
       "user_organization": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-organization')]"
       },
       "user_occupation": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-position')]"
       },
       "user_created_date": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-created-date')]"
       }
     }
   },
@@ -593,34 +575,34 @@
     "comment": "Admin -> Organizations list",
     "elements": {
       "btn_new_organization": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-organization-btn')]"
       },
       "header_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'header-name')]"
       },
       "header_edit": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'header-edit')]"
       },
       "header_active": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'header-enabled')]"
       },
       "header_created_date": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'header-createdTime')]"
       },
       "organization_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'organization-container')]"
       },
       "organization_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'organization-name')]"
       },
       "organization_edit": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'organization-edit')]"
       },
       "organization_active": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'organization-active')]"
       },
       "organization_created_date": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'organization-created-date')]"
       }
     }
   },
@@ -628,37 +610,37 @@
     "comment": "Admin -> Infrastructure list",
     "elements": {
       "header_name": {
-        "id": ""
+        "id": "header-name"
       },
       "header_state": {
-        "id": ""
+        "id": "header-status"
       },
       "header_start_date": {
-        "id": ""
+        "id": "header-dateStart"
       },
       "header_tutor": {
-        "id": ""
+        "id": "header-teacher"
       },
       "header_template": {
-        "id": ""
+        "id": "header-polygon"
       },
       "infra_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'infra-container')]"
       },
       "infra_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-name')]"
       },
       "infra_state": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'infra-state')]"
       },
       "infra_start_date": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'infra-start-date')]"
       },
       "infra_tutor": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'infra-tutor')]"
       },
       "infra_template": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'infra-template')]"
       }
     }
   },
@@ -666,28 +648,28 @@
     "comment": "Add / edit Organization",
     "elements": {
       "header": {
-        "id": ""
+        "id": "add-edit-organization-header"
       },
       "name": {
-        "id": ""
+        "id": "add-edit-organization-name"
       },
       "name_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'add-edit-organization-name')]//.[contains(@class, 'v-messages__message')]"
       },
       "btn_cancel": {
-        "id": ""
+        "id": "add-edit-organization-cancel"
       },
       "btn_ok": {
-        "id": ""
+        "id": "add-edit-organization-submit"
       },
       "cancel_popup": {
-        "id": ""
+        "id": "add-edit-organization-cancel-popup"
       },
       "btn_cancel_popup_yes": {
-        "id": ""
+        "id": "add-edit-organization-cancel-popup-yes"
       },
       "btn_cancel_popup_no": {
-        "id": ""
+        "id": "add-edit-organization-cancel-popup-no"
       }
     }
   },
@@ -695,273 +677,291 @@
     "comment": "User Profile",
     "elements": {
       "header": {
-        "id": ""
+        "id": "user-profile-header"
       },
       "picture": {
         "comment": "contains both: user picture / no picture",
-        "id": ""
+        "id": "user-avatar"
       },
       "btn_load_picture": {
-        "id": ""
+        "id": "upload-avatar"
       },
       "load_picture_error": {
-        "id": ""
+        "id": "avatar-load-error"
       },
       "btn_drop_picture": {
-        "id": ""
-      },
-      "btn_drop_password": {
-        "id": ""
+        "id": "btn-drop-avatar"
       },
       "drop_pass_popup": {
-        "id": ""
+        "id": "drop-password-popup"
       },
       "drop_pass_popup_header": {
-        "id": ""
+        "id": "drop-password-popup-header"
       },
       "drop_pass_popup_message": {
-        "id": ""
+        "id": "drop-password-popup-message"
       },
       "btn_drop_pass_popup_ok": {
-        "id": ""
+        "id": "drop-password-popup-button"
+      },
+      "btn_drop_password": {
+        "id": "btn-drop-password"
       },
       "btn_edit_user": {
-        "id": ""
+        "id": "btn-edit-user"
       },
       "name": {
-        "id": ""
+        "id": "user-name"
       },
       "occupation": {
-        "id": ""
+        "id": "user-position"
       },
       "organization": {
-        "id": ""
+        "id": "user-organization"
       },
       "email": {
-        "id": ""
+        "id": "user-email"
       },
       "details": {
-        "id": ""
+        "id": "user-details-input"
       },
       "details_symbols_count": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-details-container')]//.[contains(@class, 'v-messages__message')]"
       },
       "btn_events": {
-        "id": ""
+        "id": "user-events-tab"
       },
       "btn_curation": {
-        "id": ""
+        "id": "user-curated-tab"
       },
       "no_events": {
         "comment": "text that no events found",
-        "id": ""
+        "id": "user-no-events"
       },
       "events_header_name": {
-        "id": ""
+        "id": "user-events-event-header"
       },
       "events_header_mission": {
-        "id": ""
+        "id": "user-events-mission-header"
       },
       "events_header_start_date": {
-        "id": ""
+        "id": "user-events-date-start-header"
       },
       "events_header_end_date": {
-        "id": ""
+        "id": "user-events-date-end-header"
       },
       "event_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-events-container')]"
       },
       "events_event_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-events-event-name')]"
       },
       "events_event_mission": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-events-event-mission')]"
       },
       "events_event_start_date": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-events-date-start')]"
       },
       "events_event_end_date": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-events-date-start')]"
       },
       "curation_header_remove": {
-        "id": ""
+        "id": "delete-curated-header"
       },
       "curation_header_name": {
-        "id": ""
+        "id": "name-curated-header"
       },
       "curation_header_active": {
-        "id": ""
+        "id": "enabled-curated-header"
       },
       "curation_header_created_date": {
-        "id": ""
+        "id": "createdTime-curated-header"
       },
       "curation_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-curated-container')]"
       },
       "curation_org_remove": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-curated-delete')]"
       },
       "curation_org_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-curated-name')]"
       },
       "curation_org_active": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-curated-date-start')]"
       },
       "curation_org_created_date": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-curated-date-end')]"
       },
       "curation_input_organization": {
         "comment": "input with organizations drop-down list",
-        "id": ""
+        "id": "user-curated-input"
       },
       "curation_organization_container": {
         "comment": "one line in the organizations drop-down list",
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-curated-container')]"
       },
       "curation_organization_item": {
         "comment": "one line in the organizations drop-down list",
-        "id": ""
+        "xpath": "//.[contains(@class, 'curated-organization-item')]"
       }
     }
   },
-  "PageEditUserProfile": {
-    "comment": "Edit User Profile",
+  "PageCreateEditUserProfile": {
+    "comment": "Create / Edit User Profile",
     "elements": {
       "header": {
-        "id": ""
+        "id": "create-edit-user-header"
       },
       "picture": {
         "comment": "contains both: user picture / no picture",
-        "id": ""
+        "id": "user-avatar"
       },
       "btn_load_picture": {
-        "id": ""
+        "id": "upload-avatar"
       },
       "load_picture_error": {
-        "id": ""
+        "id": "avatar-load-error"
       },
       "btn_drop_picture": {
-        "id": ""
+        "id": "btn-drop-avatar"
       },
       "btn_drop_password": {
-        "id": ""
+        "id": "btn-drop-password"
       },
       "drop_pass_popup": {
-        "id": ""
+        "id": "drop-password-popup"
       },
       "drop_pass_popup_header": {
-        "id": ""
+        "id": "drop-password-popup-header"
       },
       "drop_pass_popup_message": {
-        "id": ""
+        "id": "drop-password-popup-message"
       },
       "btn_drop_pass_popup_ok": {
-        "id": ""
+        "id": "drop-password-popup-button"
       },
       "surname": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-surname')]"
       },
       "surname_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-surname')]//.[contains(@class, 'v-messages__message')]"
       },
       "first_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-firstname')]"
       },
       "first_name_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-firstname')]//.[contains(@class, 'v-messages__message')]"
       },
       "middle_name": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-middlename')]"
       },
       "middle_name_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-middlename')]//.[contains(@class, 'v-messages__message')]"
       },
       "email": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-email')]"
       },
       "email_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-email')]//.[contains(@class, 'v-messages__message')]"
       },
       "organization_input": {
-        "id": ""
-      },
-      "organization_error": {
-        "id": ""
+        "id": "create-edit-user-organization"
       },
       "organization_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-organization-container')]"
+      },
+      "organization_error": {
+        "xpath": "//.[contains(@class, 'create-edit-user-organization-container')]//.[contains(@class, 'v-messages__message')]"
       },
       "organization_item": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'select-organization-item')]"
       },
       "role": {
-        "id": ""
+        "id": "create-edit-user-role"
       },
       "role_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-role')]//.[contains(@class, 'v-messages__message')]"
       },
       "role_container": {
-        "id": ""
+        "id": "create-edit-user-role-container"
       },
       "role_item": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-role-item')]"
       },
       "time_zone_input": {
-        "id": ""
+        "id": "create-edit-user-timezone-input"
       },
       "time_zone_container": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-timezone-container')]"
       },
       "time_zone_item": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-timezone-item')]"
       },
       "occupation": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-position')]"
       },
       "occupation_error": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'create-edit-user-position')]//.[contains(@class, 'v-messages__message')]"
       },
-      "details": {
-        "id": ""
+      "details_input": {
+        "id": "user-details-input"
       },
       "details_symbols_count": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'user-details-container')]//.[contains(@class, 'v-messages__message')]"
       },
       "btn_curates": {
-        "id": ""
+        "id": "create-edit-user-btn-curates"
       },
       "btn_cancel": {
-        "id": ""
+        "id": "create-edit-user-btn-cancel"
       },
       "btn_save": {
-        "id": ""
+        "id": "create-edit-user-btn-save"
       },
       "cancel_popup": {
-        "id": ""
+        "id": "create-edit-user-cancel-popup"
       },
       "cancel_popup_header": {
-        "id": ""
+        "id": "create-edit-user-cancel-popup-header"
       },
       "cancel_popup_message": {
-        "id": ""
+        "id": "create-edit-user-cancel-popup-message"
       },
       "btn_cancel_popup_yes": {
-        "id": ""
+        "id": "create-edit-user-cancel-popup-btn-yes"
       },
       "btn_cancel_popup_no": {
-        "id": ""
+        "id": "create-edit-user-cancel-popup-btn-no"
       },
       "save_popup": {
-        "id": ""
+        "id": "create-edit-user-success-popup"
       },
       "save_popup_header": {
-        "id": ""
+        "id": "create-edit-user-success-popup"
       },
       "save_popup_message": {
-        "id": ""
+        "id": "create-edit-user-success-popup-message"
       },
       "btn_save_popup_ok": {
-        "id": ""
+        "id": "create-edit-user-success-popup-ok"
+      },
+      "change_teacher_role_popup": {
+        "id": "change-teacher-role-popup"
+      },
+      "change_teacher_role_popup_header": {
+        "id": "change-teacher-role-popup-header"
+      },
+      "change_teacher_role_popup_count_curated": {
+        "id": "change-teacher-role-popup-count-curated"
+      },
+      "change_teacher_role_popup_count": {
+        "id": "change-teacher-role-popup-"
+      },
+      "change_teacher_role_popup_btn_cancel": {
+        "id": "change-teacher-role-popup-btn-cancel"
+      },
+      "change_teacher_role_popup_btn_save": {
+        "id": "change-teacher-role-popup-btn-save"
       }
     }
   },
@@ -969,31 +969,56 @@
     "comment": "Infrastructure console in separate window",
     "elements": {
       "header": {
-        "id": ""
+        "id": "event-console-header"
       },
       "event_name": {
-        "id": ""
+        "id": "event-console-name"
       },
       "organization": {
-        "id": ""
+        "id": "event-console-organization"
       },
       "state": {
-        "id": ""
+        "id": "event-console-state"
       },
       "infra_template": {
-        "id": ""
+        "id": "event-console-template"
       },
       "start_time": {
-        "id": ""
+        "id": "event-console-time-start"
       },
       "start_date": {
-        "id": ""
+        "id": "event-console-date-start"
       },
       "tutor": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'event-console-tutor')]"
       },
       "console": {
-        "id": ""
+        "xpath": "//.[contains(@class, 'console')]"
+      }
+    }
+  },
+  "PageRunningEvent": {
+    "elements": {
+      "participant_card": {
+        "xpath": "//.[contains(@class, 'user-card')]"
+      },
+      "participant_name_item": {
+        "xpath": "//.[contains(@class, 'user-name-item')]"
+      },
+      "participant_position": {
+        "xpath": "//.[contains(@class, 'user-position')]"
+      },
+      "participant_show_console": {
+        "xpath": "//.[contains(@class, 'user-show-console-btn')]"
+      },
+      "participant_console": {
+        "xpath": "//.[contains(@class, 'user-console')]"
+      },
+      "participant_close_console_btn": {
+        "xpath": "//.[contains(@class, 'close-user-console-btn')]"
+      },
+      "participant_console_name": {
+        "xpath": "//.[contains(@class, 'user-console-name')]"
       }
     }
   }
