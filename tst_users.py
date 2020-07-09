@@ -37,6 +37,7 @@ class Tests(TestFramework):
         org.create()
         context['organization'] = org.name
         # DBG
+        sleep(10)
         context['organization'] = 'Тестовая организация 3'
 
     @staticmethod

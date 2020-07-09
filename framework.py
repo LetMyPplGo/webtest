@@ -111,6 +111,7 @@ def test_case_web(func):
                                       desired_capabilities=capabilities)
 
         try:
+
             # for driver in make_driver(capabilities):
             func(driver, context)
             driver.close()

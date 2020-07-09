@@ -43,7 +43,7 @@ context = {}
 # context['organization'] = 'Тестовая организация 3'
 
 for test_id, script in iterate_scripts_for_test_plan(test_plan):
-    TestFramework.run('test_test', CAP_OPERA, context, test_id, test_plan, app_build)
+    TestFramework.run('create_org_by_admin', CAP_OPERA, context, test_id, test_plan, app_build)
     exit(1)
     TestFramework.run(script, CAP_OPERA, context, test_id, test_plan, app_build)
     # TestFramework.run(script, default_capabilities(browser), test_id, test_plan, app_build)
