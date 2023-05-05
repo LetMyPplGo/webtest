@@ -2,7 +2,7 @@ from html.parser import HTMLParser
 import json
 import requests
 
-MAIL_SERVER = "http://bh.cyber.rt-solar.ru"
+MAIL_SERVER = ""
 
 
 class EmailParser(HTMLParser):
@@ -44,7 +44,7 @@ class Email:
 
 
 def iterate_emails():
-    r = requests.get(f"{MAIL_SERVER}/email", auth=('user', 'q1q1q1q1'))
+    r = requests.get(f"{MAIL_SERVER}/email", auth=('user', '*******'))
     assert r.status_code == 200, f"Bad response from {MAIL_SERVER}: {r.status_code}"
     for one_mail in r.json():
         yield Email(one_mail)
